@@ -1,0 +1,3722 @@
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script language="javascript" type="text/javascript">
+    
+    var gv = 'False';
+</script>
+<script type="text/javascript" src="https://apis.google.com/js/platform.js?hl=vn" async defer></script>
+<head><meta name="google-signin-scope" content="profile email" /><meta id="ctl00_metaGoogle" name="google-signin-client_id" /><link id="ctl00_favicon" rel="shortcut icon" type="image/x-icon" href="./Untitled.jpeg" />
+    <script src="JS/jquery-2.2.1.js" type="text/javascript"></script>
+    <script src="JS/dialog.js" type="text/javascript"></script>
+    <script src="JS/checkdate.js" type="text/javascript"></script>
+    <script src="JS/balloontip.js" type="text/javascript"></script>
+    <link href="JS/balloontip.css" rel="stylesheet" type="text/css" /><title>
+	Cổng Thông Tin Đào Tạo-Trường ĐH Sài Gòn-Đại học chính quy-DHSGDHCQ
+</title>
+    <script type="text/javascript" language="javascript">
+
+        function ShowMess() {
+            var url = location.href;
+            if (url.indexOf("err=serveroverload", 0) > 0)
+                alert('Server quá tải, vui lòng đăng nhập lại!');
+            else if (url.indexOf("err=sessionreuse", 0) > 0)
+                alert('Vui lòng tắt và mở lại trình duyệt!');
+        }
+
+        $(function () {
+            if (typeof AjaxPro != 'undefined' && AjaxPro && AjaxPro.Request && AjaxPro.Request.prototype) {
+                AjaxPro.Request.prototype.doStateChange = function () {
+                    this.onStateChanged(this.xmlHttp.readyState, this);
+                    if (this.xmlHttp.readyState != 4 || !this.isRunning) {
+                        return;
+                    }
+                    this.duration = new Date().getTime() - this.__start;
+                    if (this.timeoutTimer != null) {
+                        clearTimeout(this.timeoutTimer);
+                    }
+                    var res = this.getEmptyRes();
+                    if (this.xmlHttp.status == 200 && (this.xmlHttp.statusText == "OK" || !this.xmlHttp.statusText)) {
+                        res = this.createResponse(res);
+                    } else {
+                        res = this.createResponse(res, true);
+                        res.error = { Message: this.xmlHttp.statusText, Type: "ConnectFailure", Status: this.xmlHttp.status };
+                    }
+                    this.endRequest(res);
+                };
+            }
+            //gapi.load('auth2', function () {
+            //    gapi.auth2.GoogleUser(u => {
+            //        u.getAuthResponse(a => {
+            //            EduSoft.Web.DefaultMaster.CheckGoogle(a.id_token, x => {
+            //                if (x.value) {
+            //                    self.location = decodeURIComponent(x.value);
+            //                }
+            //            });
+            //        });
+            //    });
+            //}
+        });
+    </script>
+
+<link href="/WebResource.axd?d=cVCMcomRjmn-WNhYKG1eTUiSt_DjcxG3J3hfQ9paF3SDWJIzfpuwxcEgu1eCJJA4NjmMFPzhlng-x3JqI0Vp1Mt2CIFTYwcyaih6pLhjPVY-QjROwe8NWEuM6AUnYyqMOWaeGlb03eRwu026IO08II9SDp0BJxU4UCtTXG7W1-E6Cevo0&amp;t=637782889760000000" rel="stylesheet" type="text/css" /><link href="App_Themes/Standard/Standard.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Standard/StyleSheet.css" type="text/css" rel="stylesheet" /><style type="text/css">
+	.ctl00_ContentPlaceHolder1_ctl00_leftMenu_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.ctl00_ContentPlaceHolder1_ctl00_leftMenu_1 { color:Black;font-size:12px;font-weight:bold;text-decoration:none; }
+	.ctl00_ContentPlaceHolder1_ctl00_leftMenu_2 { color:Black;background-color:#B0C5FF;border-style:None;font-size:12px;font-weight:bold; }
+	.ctl00_ContentPlaceHolder1_ctl00_leftMenu_3 { background-color:#B0C5FF;width:200px; }
+
+</style>
+<style>
+ .style2
+    {
+        width: 49px;
+        height: 10px;
+    }
+    .style6
+    {
+        width: 98px;
+        height: 10px;
+    }
+    .style9
+    {
+        width: 302px;
+        height: 10px;
+    }
+    .style10
+    {
+        width: 136px;
+        height: 10px;
+    }
+    .style11
+    {
+        width: 100px;
+        height: 10px;
+    }
+    .style13
+    {
+        height: 10px;
+    }
+    .style14
+    {
+        height: 3px;
+    }
+body{
+  font-family:tahoma,verdana;
+  background: url(Images/Background.png) center;
+  padding:0;
+  margin: 0;
+  font-size: 9pt;
+  text-align: left;
+  
+}
+ a:hover {
+  color:#993333;
+  text-decoration:underline;
+}
+a {
+  color:#355170;
+  text-decoration:none;
+}
+ table{
+   width: 100%;
+ }
+select
+{
+width:150px
+}
+.base{
+  width: 1006px;
+  margin: 0 ;
+  padding: 0 ;
+  background: #ffffff;
+  text-align: left;
+  height:700px;
+}
+*html .base{
+  width: 1003px;
+}
+
+*:first-child+html .base{
+  width: 1003px;
+}
+/*
+.header{
+  background: #ffffff url(Images/BannerNTT.png) no-repeat right;
+  height: 120px;
+
+}
+.headerEnglish{
+  background: #ffffff url(Images/BannerNTTEnglish.png) no-repeat right;
+  height: 120px;
+
+}
+.header .top-link{
+  float:right;
+  padding-top:70px;
+  padding-bottom:0px;
+}
+*/
+
+.left-menu{
+  background: transparent url(Images/MenuBgLeft.png) no-repeat top left;
+  height: 42px;
+}
+.left-menu .right-menu{
+  background: transparent url(Images/MenuBgRight.png) no-repeat top right;
+  height: 42px;
+}
+
+.tree_table
+{
+	float:left;
+}
+
+.main-menu{
+  background: url(Images/MenuBg.png) repeat-x;
+  height: 42px;
+  margin: 0 2px 0 5px;
+  color: #07456c;
+  font-size: 8pt;
+  font-weight: bold;
+}
+.phone-me{
+  width: 220px;
+  float: left;
+  height: 42px;
+  padding-top: 12px;
+}
+.phone-me .phone-icon{
+  background: url(Images/phone-icon.png) no-repeat  ;
+  height: 28px;
+  float: left;
+  width: 29px;
+  margin-left: 10px;
+}
+.phone-me .left{
+  background: url(Images/left-phone.png) no-repeat left top;
+  height: 24px;
+  width: 6px;
+  float: left;
+  margin-left: 15px;
+  margin-top: 2px;
+}
+.phone-me .center{
+  background: url(Images/center-phone.png) repeat-x left top;
+  height: 24px;
+  padding:5px 15px;
+  float: left;
+  margin-top: 2px;
+}
+.phone-me .right{
+  background: url(Images/right-phone.png) no-repeat left top;
+  height: 24px;
+  width: 6px;
+  float: left;
+  margin-top: 2px;
+}
+
+
+
+.over-menu{
+  float: left;
+  cursor: pointer;
+  margin-top: 12px;
+}
+.over-menu .left{
+  background: url(Images/over-left-menu.png) no-repeat top left;
+  width: 4px ;
+  height: 30px;
+  float: left;
+}
+.over-menu .center{
+  background: url(Images/over-center-menu.png) repeat-x top ;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  padding: 0px 10px;
+}
+.over-menu .right{
+  background: url(Images/over-right-menu.png) no-repeat  top left ;
+  width: 4px ;
+  height: 30px;
+  float: left;
+}
+.out-menu{
+  float: left;
+  cursor: pointer;
+  height: 42px ;
+   line-height: 55px;
+   margin: 0 8px;
+}
+.line-menu{
+  background: url(Images/line-menu.png) no-repeat center;
+  width: 3px;
+  height: 25px;
+  float: left;
+  margin-top: 14px;
+}
+
+
+ .content{
+   overflow: hidden;
+   margin: 5px 0 0 0;
+   clear: both;
+   padding: 0 5px;
+
+ }
+
+ .login-base{
+    background: #f4f4f5;
+   border: solid 1px #dcdbdb;
+   float: left;
+   color: #827f7f;
+   margin:0 ;
+   text-align: center;
+   padding-bottom: 5px;
+ }
+  .navigate-base{
+  
+   border: solid 1px #dcdbdb;
+   float: left;
+   width:100%;
+   color: #000000;
+   margin:0 ;
+   text-align: center;
+   padding-bottom: 5px;
+ }
+ 
+ .navigate-base2{ 
+   border: solid 1px #dcdbdb;
+   float: left;
+   width:100%;
+   color: #827f7f;
+   margin:0 ;
+   text-align: center;
+   padding-bottom: 5px;
+ }
+ /*.logout{
+   margin-right: 140px;
+   margin-top:10px;
+ }*/
+ .login-content{
+   padding: 0 10px;
+ }
+
+ .login-base .title{
+   background-image:url(App_Themes/Standard/Images/menuNavigateLog.png);
+   margin: 2px;
+   height: 25px;
+   line-height: 25px;
+   color: #3b8abd;
+   text-align: left;
+   padding-left: 10px;
+   font-weight: bold;
+   overflow: hidden;
+ }
+ .input-txt{
+   width: 200px;
+   height: 15px;
+   background: #ffffff;
+   border: solid 1px #b8b8bc;
+ }
+.login-base .user{
+  text-align: left;
+  margin: 5px 0 5px 0;
+  padding-left: 10px;
+}
+.login-base .login-button{
+  text-align: right;
+  margin: 5px 0px 5px 0px;
+}
+
+.defaultbnt{
+  padding:0 5px 2px;
+  font-size: 9pt;
+  background: url(Images/button.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  width:80px;
+  height:22px;
+  margin:2 2px 2px 2px;
+  cursor: pointer;
+}
+.defaultbnt2{
+  padding:0 5px 2px;
+  font-size: 9pt;
+  background: url(Images/buttonL.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  width:95px;
+  height:22px;
+  margin:10 10px 10px 10px;
+  cursor: pointer;
+}
+.defaultbnt2:hover{
+  padding:0 5px 2px;
+  font-size: 9pt;
+ background: url(Images/buttonOverL.png) no-repeat center left;
+  border: none;
+  width:95px;
+  color: #000000;
+  margin:10 10px 10px 10px;
+}
+.defaultbnt3{
+  padding:0 5px 2px;
+  font-size: 9pt;
+  background: url(Images/butonleft.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  width:95px;
+  height:22px;
+  margin:10 10px 10px 10px;
+  cursor: pointer;
+  font-size:8pt;
+  font-family:Arial;
+}
+.defaultbnt3:hover{
+  padding:0 5px 2px;
+  font-size: 9pt;
+ background: url(Images/butonleft2.png) no-repeat center left;
+  border: none;
+  width:90px;
+  color: #000000;
+  margin:10 10px 10px 10px;
+   font-size:8pt;
+  font-family:Arial;
+}
+.defaultbnt4{
+  padding:0 5px 2px;
+  font-size: 9pt;
+  background: url(Images/butongiua.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  width:90px;
+  height:22px;
+  margin:10 10px 10px 10px;
+  cursor: pointer;
+   font-size:8pt;
+  font-family:Arial;
+}
+.defaultbnt4:hover{
+  padding:0 5px 2px;
+  font-size: 9pt;
+ background: url(Images/butongiua2.png) no-repeat center left;
+  border: none;
+  width:90px;
+  color: #000000;
+  margin:10 10px 10px 10px;
+   font-size:8pt;
+  font-family:Arial;
+}
+.defaultbnt5{
+  padding:0 5px 2px;
+  font-size: 9pt;
+  background: url(Images/butonright.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  width:90px;
+  height:22px;
+  margin:10 10px 10px 10px;
+  cursor: pointer;
+   font-size:8pt;
+   text-align:left;
+  font-family:Arial;
+}
+.defaultbnt5:hover{
+  padding:0 5px 2px;
+  font-size: 9pt;
+ background: url(Images/butonright2.png) no-repeat center left;
+  border: none;
+  width:90px;
+  color: #000000;
+  margin:10 10px 10px 10px;
+   font-size:8pt;
+  font-family:Arial;
+}
+.defaultbnt:hover{
+  padding:0 5px 2px;
+  font-size: 9pt;
+ background: url(Images/buttonOver.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  margin:10 10px 10px 10px;
+}
+.login-base .box-remember{
+  text-align: left;
+  padding-left: 50px;
+}
+ .intro-base{
+    /*float: left;*/
+    clear: right;
+ }
+ .title-base{
+  background: url(Images/menuLogRight.png);
+   height: 28px;
+   /*width: 270px; */
+   /*margin-left: 2px;*/
+  /* clear: left;  */
+ }
+ .title-base .title{
+  /* background: transparent url(Images/TopTitleBg.png) no-repeat right; */
+    color:#000000;
+    font-size:9pt;
+    font-weight:bold;
+    height:28px;
+    line-height:28px;
+    text-align: left;
+ }
+ .intro-base .images{
+   float: left;
+   width: 200px;
+   text-align: center;
+ }
+ .intro-base .links-list{
+   margin:10px 5px 5px 230px;
+
+ }
+ .intro-base .links-list .icons{
+   background: url(Images/icons-link.png) no-repeat center left;
+   width: 9px;
+   height: 15px;
+   float: left;
+ }
+ .intro-base .links-list .link{
+   margin-left: 15px;
+ }
+ .line-base{
+   background:url(Images/content-line.png) repeat-x ;
+   height: 28px;
+   float: left;
+   clear: both;
+   width: 100%;
+   margin-top: 5px;
+ }
+ .quick-search{
+   background: url(Images/quick-searchbg.png) repeat-x ;
+   height: 50px;
+   border: solid 1px #cccccc;
+   margin: 5px 0 5px 0;
+   clear: both;
+   position:relative !important;
+   top:5px !important;
+}
+ .quick-search .text{
+   float: left;
+   height: 51px;
+   line-height: 31px;
+   margin: 0 0 0 20px;
+}
+ .quick-search .dropdown-list{
+   margin: 7px 0 0 20px;
+   float: left;
+}
+  .quick-search select{
+    width: 250px;
+
+
+  }
+
+ .news-block{
+   float: left;
+   width: 45%;
+   margin-left: 5px;
+ }
+  .news-block-copy{
+   float: right;
+   width: 45%;
+   margin-right: 5px;
+ }
+ .news-table{
+   border: none;
+ }
+ .news-table .top-left{
+   background: url(Images/Block-Top-Left.png) no-repeat left bottom;
+   width:14px ;
+   height:30px ;
+ }
+ .news-table .top-center{
+   background: #ffffff url(Images/Block-Top-Center.png) repeat-x left bottom;
+   height:30px ;
+   vertical-align: bottom;
+ }
+ .news-table .top-center .title{
+    background: url(Images/Block-Icon.png) no-repeat left bottom;
+    height: 24px;
+    margin-top: 1px;
+    padding-left: 40px;
+    line-height: 24px;
+    color: #ffffff;
+ }
+ .titleImage
+ {
+ 	background: url(Images/Block-Icon.png) no-repeat left bottom;
+ }
+ .news-table .top-right{
+   background: url(Images/Block-Top-Right.png) no-repeat left bottom;
+   width:14px ;
+   height:30px ;
+ }
+  .news-table .center-left{
+   background: url(Images/Block-Center-Left.png) repeat-y left bottom;
+   width:14px ;
+ }
+ .news-table .center-center{
+   background: #ffffff;
+   padding:5px 5px 5px 10px;
+ }
+ .news-table .center-center .defaultbnt {
+   float: right;
+ }
+
+ .news-table .center-right{
+   background: url(Images/Block-Center-Right.png) repeat-y left bottom;
+   width:14px ;
+ }
+ .news-table .bottom-left{
+   background: url(Images/Block-Bottom-Left.png) no-repeat left top;
+   width:14px ;
+   height:14px ;
+ }
+ .news-table .bottom-center{
+   background: url(Images/Block-Bottom-Center.png) repeat-x left top;
+   height:14px ;
+ }
+ .news-table .bottom-right{
+   background: url(Images/Block-Bottom-Right.png) no-repeat left top;
+   width:14px ;
+   height:14px ;
+ }
+ .icons{
+    background: url(Images/icons.png) no-repeat center;
+    width: 9px;
+    height: 15px;
+    float: left;
+ }
+ .news-links{
+   margin-left: 15px;
+   margin-bottom: 5px;
+ }
+ .infor-member{
+   clear: both;
+
+   position: relative !important;
+    top: 5px !important;
+     margin: 5px 0;
+ }
+.infor-member .top{
+ background: url(Images/top-info.png) no-repeat bottom;
+ width: 467px;
+ height: 20px;
+}
+.infor-member .center{
+  background: url(Images/center-infor.png) repeat-y ;
+  width: 407px;
+  padding: 5px 30px 5px ;
+}
+.infor-member .title
+{
+	 background: url(Images/Block-Icon.png) no-repeat bottom;
+	 width: 467px;
+	 height: 20px;
+}
+.name{
+	width:30%;
+	text-align:right;
+	color: #19506c;
+}
+.resource-name{
+	color: #5f6264;
+}
+.resource-name .inputtext{
+  width:350px
+}
+.form-title{
+ color:#075dfa;
+ font-weight:bold;
+ clear:both;
+ margin:10px 20px;
+ float:left;
+}
+.edu-line {
+border-top:1px solid #1F85C5;
+clear:both;
+font-size:2px;
+margin:10px 5px;
+position:relative;
+top:10px
+}
+.admin-table{
+  border: solid 1px #cdcdcd;
+  min-height: 320px;
+  margin-top: 20px;
+}
+*html .admin-table{
+   height: 320px;
+}
+
+*:first-child+html .admin-table{
+   height: 320px;
+}
+.admin-table td{
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.infor-member .bottom{
+  background: url(Images/bottom-infor.png) no-repeat top;
+  height: 11px;
+  width: 467px;
+}
+.link-control {
+line-height:30px;
+margin:0 0 0 20px;
+}
+.icon-control {
+margin:0 0 0 20px;
+}
+
+
+.footer{
+  background: url(Images/FooterBg.png) repeat-x;
+  height: 50px;
+  clear: both;
+  margin-top: 1px;
+  margin-bottom:5px;
+}
+.footer .left{
+  float: left;
+  color: #8b8174;
+  margin: 10px ;
+}
+.footer .copyright{
+  float: left;
+  color: #5e6266;
+  margin: 20px 0 0 200px ;
+}
+.footer .link-part{
+  color: #982323;
+}
+
+
+/*Gridview*/
+.grid-view
+{
+	background: #f9f9f9;
+	font-size:8pt;
+	font-family:Tahoma;
+	width:100%;
+	border:solid 1px #666666;
+}
+.grid-view th
+{
+	
+	padding-left:5px ! important;
+	padding-left:1px;
+	padding-right:5px ! important;
+	background-color: #2D8ECE;
+	color:#ffffff;
+	line-height:18px;
+    font-size:11px;	
+	padding-top:3px;
+	padding-bottom:3px;
+	text-align:center;
+}
+.title-grid-view
+{
+	/*
+	background-color: #05bafd;
+	margin-top:5px;
+	font-size:8pt;
+    border-top: solid 1px #666666;
+    border-right: solid 1px #666666;
+    color:White ;
+    width: 986px;
+    font-weight:bold ;
+*/
+}
+*html .title-grid-view
+{
+    width: 986px;
+}
+*:first-child+html .title-grid-view
+{
+    width: 986px;
+}
+.title-grid-view td
+{
+    vertical-align:middle;
+    padding:5px 0px;
+    background-color:#2D8ECE;
+    border-left:solid 1px #666666;
+	border-bottom:solid 1px #666666;
+	border-top-style: none;
+    border-right-style: none;
+    
+}
+.grid-view td
+{
+	border-bottom:1px solid #666666;
+	border-left:1px solid #666666;
+	border-style:none none solid solid;
+	padding:0 0;
+	vertical-align:middle;
+
+}
+.grid-view tr
+{
+	
+}
+.grid-view td,
+.grid-view td a
+{
+	color:navy;
+	height:18px;
+	padding-left:5px;
+	padding-right:5px;
+}
+.pager-style td
+{
+	border:none;
+	text-align:right;
+	font-weight:bold;
+	vertical-align:middle;
+}
+.pager-style td a:hover
+{
+	color:#993333;
+}
+.pager-style table
+{
+	border-left:none;
+	width:auto;
+}
+
+.alternating-row {
+background:#d2e9ed none repeat scroll 0 0;
+}
+/* End Gridview*/
+.view-table{
+  background: #f9f9f9;
+  border:none;
+  margin-top:5px;
+  border: solid 1px #dedddd;
+}
+
+.title-diem
+{
+	/*background-image:url(Images/title_1.gif);
+	/*border-left:solid #ffffff;
+	border-color:Silver;*/
+	background-color: #2D8ECE;
+	height:30px;
+	font-size : 11px;
+	font-weight:bold;
+	padding:0 0 0 0;
+	color : White;
+}
+.title-hk-diem
+{
+	padding-left:5px ! important;
+	padding-left:1px;
+	padding-right:5px ! important;
+	border-left:solid 1px #ffffff;
+
+	background-color:#cccccc;
+	line-height:18px;
+    font-size:9pt;
+	padding-top:3px;
+	font-weight:bold;
+	padding-bottom:3px;
+}
+
+.view-table th
+{
+	padding-left:5px ! important;
+	padding-left:1px;
+	padding-right:5px ! important;
+	border-left:solid 1px #ffffff;
+	background-color: #05bafd;
+	color:#ffffff;
+	line-height:18px;
+    font-size:8pt;
+	text-align: center;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+.table-continer-table-diem
+{
+	background-color:White;
+	border:2;
+	padding:0 0 0 0;
+	border-color:Red;
+}
+
+.table-diem
+{
+	background-color:White;
+	border:1;
+	margin-left:0px;
+	border-style:outset;
+	border-width:1px;
+	border-color:Silver;
+	padding:0 0 0 0;
+}
+.row-diemTK
+{
+	background-color:White;
+	border:1;
+	margin-left:0px;
+	border-style:outset;
+	border-width:1px;
+	border-color:Silver;
+	font-size : 10px;
+	font-weight:bold;
+	height:18px;
+	padding-top:2;
+	/*padding:2 0 0 0;*/
+}
+.row-diem
+{
+border:1;
+border-collapse:collapse;
+border-width:1px;	
+border-color:Black;
+}
+.table-continer-table-diem th
+{
+	background-color: #3399ff;
+	font-size: 8pt;
+	font-style:normal;
+	height:18px;
+	text-align:center;
+	border-style:double;
+	border-width:1px;
+	border-color:Orange;
+}
+.view-table td
+{
+	padding-left:5px;
+	padding-right:5px ! important;
+	border-left:solid 1px #dbdbdb;
+    border-bottom: solid 1px #dbdbdb;
+    border-collapse:separate;
+}
+.view-table .note{
+  background: #F0F49F;
+  padding: 5px 10px;
+
+}
+ .timetable{
+ background: #ffffff;
+  border:none;
+  margin-top:5px;
+  border-top: solid 1px #304B8B;
+  border-right: solid 1px #304B8B;
+ }
+ .timetable .numbering{
+  background-color: #B9D1EA;
+}
+ .timetable th
+{
+	padding-left:5px ! important;
+	padding-left:1px;
+	padding-right:5px ! important;
+	border-left:solid 1px #304B8B;
+	background-color: #05bafd;
+	color:#ffffff;
+	line-height:18px;
+    font-size:12px;
+	text-align: center;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.timetable td
+{
+	padding-left:5px;
+	padding-right:5px ! important;
+	border-left:solid 1px #304B8B;
+    border-bottom: solid 1px #304B8B;
+    border-collapse:separate;
+}
+.timetable .note{
+  background: #F0F49F;
+  padding: 5px 10px;
+
+}
+.grid-roll
+{
+  overflow-x:hidden;
+  overflow-y:scroll;
+  border-bottom: solid 1px #666666;
+  border-right:solid 1px #666666;
+  border-left:solid 1px #666666;
+}
+.grid-roll-Vertical
+{
+  overflow-x:scroll ;
+  overflow-y:scroll;  
+  border-bottom: solid 1px #666666;
+  border-right:solid 1px #666666;
+  border-left:solid 1px #666666;
+  border-top:solid 1px #666666;
+}
+.tree-bothRoll
+{
+  overflow-x:scroll ;
+  overflow-y:scroll;
+  border-bottom: solid 1px #666666;
+  border-right:solid 1px #666666;
+  border-left:solid 1px #666666;
+  border-top:solid 1px #666666;
+}
+.grid-roll1
+{
+  text-align:left;  
+  width:350px;
+  padding:13px 13px 13px 13px;
+}
+.grid-roll2
+{
+  overflow-x:hidden;
+  overflow-y:scroll;  
+  border-bottom:solid 1px #666666;
+  border-right:solid 1px #666666;
+  border-left:solid 1px #666666;
+  
+}
+.textTable
+{
+font-family:arial;
+font-size:8pt;
+}
+.backgroundTable
+{
+background: url(Images/bg_snow.gif);	
+}
+.classTable
+{
+	font-family:Arial;
+	font-size:11px;
+	font-weight:bold;
+}
+.TextTitle
+{
+	font-size:13px;
+	font-family:Arial;
+	font-weight:bold;
+}
+.fline 
+{
+clear:both;
+border-top:1px solid #666666;
+height:8px;
+margin:1px,1px,1px,1px;
+padding:1px,1px,1px,1px;
+vertical-align:middle;
+}
+.top-fline
+{
+	height:16px;
+	margin:1px,1px,1px,1px;
+	padding:1px,1px,1px,1px;
+	clear:both;
+}
+
+/*CSS Trung 8*/
+
+.grid_scroll 
+{ 
+  overflow-x: hidden ;
+  overflow-y: auto ;
+  clear: both;
+  }
+  
+.MyCalendar .ajax__calendar_container 
+{
+	border-style:double;
+	border-width:medium;
+    background-color: White;
+    color: #000000;
+    padding:0 0 0 0px;
+ }
+.MyCalendar .ajax__calendar_other .ajax__calendar_day,
+.MyCalendar .ajax__calendar_other .ajax__calendar_year 
+{
+    color:Orange;
+}
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_month,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_year 
+{
+    color: Blue;
+}
+
+.MyCalendar .ajax__calendar_active .ajax__calendar_day,
+.MyCalendar .ajax__calendar_active .ajax__calendar_month,
+.MyCalendar .ajax__calendar_active .ajax__calendar_year 
+{
+    color: Blue;
+    font-weight:bold;
+}
+.MyCalendar .ajax__calendar_header
+{
+	background-color:Scrollbar;
+	padding:0 0 0 0px;
+}
+
+.MyCalendar .ajax__calendar_dayname 
+{
+	color:Blue;
+	text-align:right;
+	padding:0 0px;
+}
+.MyCalendar .ajax__calendar_day 
+{
+	text-align:right;padding:0 0px;cursor:pointer;
+}
+.BorderGrid
+{
+	border-left-width:1px;
+	border-right-width:1px;
+}
+
+
+
+
+/*Dinh dang TextBox*/
+.TextBox
+{
+	font-size:8pt;
+	font-family:Tahoma;
+	height:14px;
+	
+	
+}
+
+/*Dinh dang cho Label*/
+.Label
+{
+	font-size:8pt;
+	font-family:Tahoma;
+}
+
+/*Dinh dang Button*/
+.DefaultButton
+{
+	height:22px;
+	font-family:Tahoma;
+	font-size:8pt;
+}
+
+/*DINH DANG DROPDOWNLIST*/
+.DropDown
+{
+
+	font-family:Tahoma;
+	font-size:9pt;
+}
+
+.TextInfor
+{
+	font-size:9pt;
+	font-family:Tahoma;
+	color:#000000;
+	line-height:13pt;
+}
+.ColorTitle
+{
+	color:blue;
+	font-family:Tahoma;
+	font-size:10pt;
+	font-weight:bold;
+}
+baseBackground
+{
+	background: url(App_Themes/Standard/Images/baseBackground.png);
+	width:100%;
+	height:100%;
+}
+.LogoFooter
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	color:maroon;
+}
+.BaseFontFooter
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	color:#595959;
+}
+.BaseFontContent
+{
+	font-family:Arial;
+	font-size:9pt;
+	color:#595959;
+}
+.deFaultTitle
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	color:#595959;
+}
+.filters
+{
+	border: solid 1px #dcdbdb;
+	color:#000000;
+    font-size:9pt;
+    height:60px;
+    line-height:20px;
+    text-align: left;
+    
+}
+.divStyle
+{
+	border: solid 1px #fafafa;
+	border-collapse:collapse;
+	width:100%;
+}
+.titleTinTuc
+{
+	font-family:Tahoma;
+	font-size:9pt;
+	font-weight:bold;
+	color:Maroon;
+}
+
+/*Text*/
+.textbody
+{
+	font-family:tahoma;
+	font-size:8pt;
+	color:Black;
+}
+/* end */
+
+
+.body-table
+{
+	/*background: #f9f9f9;border:none 1px black;*/
+	font-size:8pt;
+	font-family:Tahoma;
+	width:100%;
+	
+	border-right:none 1px black;
+	color:Navy;
+}
+
+
+.body-table th
+{
+	padding-left:5px ! important;
+	padding-left:1px;
+	padding-right:5px ! important;
+	border-left:solid 1px #666666;
+	background-color: #2D8ECE;
+	color:#ffffff;
+	line-height:18px;
+    font-size:11px;	
+	padding-top:3px;
+	padding-bottom:3px;
+}
+.title-table
+{
+	background-color: #05bafd;
+	margin-top:5px;
+	font-size:8pt;
+    border-top: solid 1px #666666;
+    border-right: solid 1px #666666;
+    color:White ;
+    width: 100%;
+    font-weight:bold ;
+}
+*html .title-table
+{
+    width: 990px;
+}
+*:first-child+html .title-table
+{
+    width: 990px;
+}
+.title-table td
+{
+    vertical-align:middle;
+    padding:5px 0px;
+    background-color:#2D8ECE;
+    border-left:solid 1px #666666;
+	border-bottom:solid 1px #666666;
+	border-top-style: none;
+    border-right-style: none;
+    
+}
+.body-table td
+{
+	border-bottom:1px solid #666666;
+	border-left:1px solid #666666;
+	border-style:none none solid solid;
+	padding:0 0;
+	vertical-align:middle;
+
+}
+.body-table td a
+{
+	/*color:navy;*/
+}
+.TextThongTin
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	color:#00000a;
+	font-weight:normal;
+	text-align:left;
+	line-height:19px;
+}
+.TextTitle
+{
+	font-family:Tahoma;
+	font-size:9pt;
+	font-weight:100;
+	color:Maroon;
+}
+.NgayTitle
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	font-weight:normal;
+	color:Gray;
+	font-style:italic;
+}
+.ChiTiet
+{
+	background-color:white;
+	border-width:1px;
+	border-collapse:collapse;
+	border-color:Gray;
+}
+.kecham
+{
+	background-image:url(Images/kecham.png);
+}
+.tatcabantin
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	font-weight:normal;
+}
+.rowOnmouseover-GridView 
+{ 
+background-color:#DAE6F8; 
+
+} 
+
+.Lable
+{
+	font-size:12px;
+	font-family:Tahoma;
+	
+}
+
+
+.MyCalendar .ajax__calendar_container {
+    border:1px solid #646464;
+    background-color: lemonchiffon;
+    color: red;
+}
+.MyCalendar .ajax__calendar_other .ajax__calendar_day,
+.MyCalendar .ajax__calendar_other .ajax__calendar_year {
+    color: black;
+}
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_month,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_year {
+    color: black;
+}
+.MyCalendar .ajax__calendar_active .ajax__calendar_day,
+.MyCalendar .ajax__calendar_active .ajax__calendar_month,
+.MyCalendar .ajax__calendar_active .ajax__calendar_year {
+    color: black;
+    font-weight:bold;
+}
+</style>
+<style>
+ .style2
+    {
+        width: 49px;
+        height: 10px;
+    }
+    .style6
+    {
+        width: 98px;
+        height: 10px;
+    }
+    .style9
+    {
+        width: 302px;
+        height: 10px;
+    }
+    .style10
+    {
+        width: 136px;
+        height: 10px;
+    }
+    .style11
+    {
+        width: 100px;
+        height: 10px;
+    }
+    .style13
+    {
+        height: 10px;
+    }
+    .style14
+    {
+        height: 3px;
+    }
+body{
+  font-family:tahoma,verdana;
+  background: url(Images/Background.png) center;
+  padding:0;
+  margin: 0;
+  font-size: 9pt;
+  text-align: left;
+  
+}
+ a:hover {
+  color:#993333;
+  text-decoration:underline;
+}
+a {
+  color:#355170;
+  text-decoration:none;
+}
+ table{
+   width: 100%;
+ }
+select
+{
+width:150px
+}
+.base{
+  width: 1006px;
+  margin: 0 ;
+  padding: 0 ;
+  background: #ffffff;
+  text-align: left;
+  height:700px;
+}
+*html .base{
+  width: 1003px;
+}
+
+*:first-child+html .base{
+  width: 1003px;
+}
+/*
+.header{
+  background: #ffffff url(Images/BannerNTT.png) no-repeat right;
+  height: 120px;
+
+}
+.headerEnglish{
+  background: #ffffff url(Images/BannerNTTEnglish.png) no-repeat right;
+  height: 120px;
+
+}
+.header .top-link{
+  float:right;
+  padding-top:70px;
+  padding-bottom:0px;
+}
+*/
+
+.left-menu{
+  background: transparent url(Images/MenuBgLeft.png) no-repeat top left;
+  height: 42px;
+}
+.left-menu .right-menu{
+  background: transparent url(Images/MenuBgRight.png) no-repeat top right;
+  height: 42px;
+}
+
+.tree_table
+{
+	float:left;
+}
+
+.main-menu{
+  background: url(Images/MenuBg.png) repeat-x;
+  height: 42px;
+  margin: 0 2px 0 5px;
+  color: #07456c;
+  font-size: 8pt;
+  font-weight: bold;
+}
+.phone-me{
+  width: 220px;
+  float: left;
+  height: 42px;
+  padding-top: 12px;
+}
+.phone-me .phone-icon{
+  background: url(Images/phone-icon.png) no-repeat  ;
+  height: 28px;
+  float: left;
+  width: 29px;
+  margin-left: 10px;
+}
+.phone-me .left{
+  background: url(Images/left-phone.png) no-repeat left top;
+  height: 24px;
+  width: 6px;
+  float: left;
+  margin-left: 15px;
+  margin-top: 2px;
+}
+.phone-me .center{
+  background: url(Images/center-phone.png) repeat-x left top;
+  height: 24px;
+  padding:5px 15px;
+  float: left;
+  margin-top: 2px;
+}
+.phone-me .right{
+  background: url(Images/right-phone.png) no-repeat left top;
+  height: 24px;
+  width: 6px;
+  float: left;
+  margin-top: 2px;
+}
+
+
+
+.over-menu{
+  float: left;
+  cursor: pointer;
+  margin-top: 12px;
+}
+.over-menu .left{
+  background: url(Images/over-left-menu.png) no-repeat top left;
+  width: 4px ;
+  height: 30px;
+  float: left;
+}
+.over-menu .center{
+  background: url(Images/over-center-menu.png) repeat-x top ;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  padding: 0px 10px;
+}
+.over-menu .right{
+  background: url(Images/over-right-menu.png) no-repeat  top left ;
+  width: 4px ;
+  height: 30px;
+  float: left;
+}
+.out-menu{
+  float: left;
+  cursor: pointer;
+  height: 42px ;
+   line-height: 55px;
+   margin: 0 8px;
+}
+.line-menu{
+  background: url(Images/line-menu.png) no-repeat center;
+  width: 3px;
+  height: 25px;
+  float: left;
+  margin-top: 14px;
+}
+
+
+ .content{
+   overflow: hidden;
+   margin: 5px 0 0 0;
+   clear: both;
+   padding: 0 5px;
+
+ }
+
+ .login-base{
+    background: #f4f4f5;
+   border: solid 1px #dcdbdb;
+   float: left;
+   color: #827f7f;
+   margin:0 ;
+   text-align: center;
+   padding-bottom: 5px;
+ }
+  .navigate-base{
+  
+   border: solid 1px #dcdbdb;
+   float: left;
+   width:100%;
+   color: #000000;
+   margin:0 ;
+   text-align: center;
+   padding-bottom: 5px;
+ }
+ 
+ .navigate-base2{ 
+   border: solid 1px #dcdbdb;
+   float: left;
+   width:100%;
+   color: #827f7f;
+   margin:0 ;
+   text-align: center;
+   padding-bottom: 5px;
+ }
+ /*.logout{
+   margin-right: 140px;
+   margin-top:10px;
+ }*/
+ .login-content{
+   padding: 0 10px;
+ }
+
+ .login-base .title{
+   background-image:url(App_Themes/Standard/Images/menuNavigateLog.png);
+   margin: 2px;
+   height: 25px;
+   line-height: 25px;
+   color: #3b8abd;
+   text-align: left;
+   padding-left: 10px;
+   font-weight: bold;
+   overflow: hidden;
+ }
+ .input-txt{
+   width: 200px;
+   height: 15px;
+   background: #ffffff;
+   border: solid 1px #b8b8bc;
+ }
+.login-base .user{
+  text-align: left;
+  margin: 5px 0 5px 0;
+  padding-left: 10px;
+}
+.login-base .login-button{
+  text-align: right;
+  margin: 5px 0px 5px 0px;
+}
+
+.defaultbnt{
+  padding:0 5px 2px;
+  font-size: 9pt;
+  background: url(Images/button.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  width:80px;
+  height:22px;
+  margin:2 2px 2px 2px;
+  cursor: pointer;
+}
+.defaultbnt2{
+  padding:0 5px 2px;
+  font-size: 9pt;
+  background: url(Images/buttonL.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  width:95px;
+  height:22px;
+  margin:10 10px 10px 10px;
+  cursor: pointer;
+}
+.defaultbnt2:hover{
+  padding:0 5px 2px;
+  font-size: 9pt;
+ background: url(Images/buttonOverL.png) no-repeat center left;
+  border: none;
+  width:95px;
+  color: #000000;
+  margin:10 10px 10px 10px;
+}
+.defaultbnt3{
+  padding:0 5px 2px;
+  font-size: 9pt;
+  background: url(Images/butonleft.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  width:95px;
+  height:22px;
+  margin:10 10px 10px 10px;
+  cursor: pointer;
+  font-size:8pt;
+  font-family:Arial;
+}
+.defaultbnt3:hover{
+  padding:0 5px 2px;
+  font-size: 9pt;
+ background: url(Images/butonleft2.png) no-repeat center left;
+  border: none;
+  width:90px;
+  color: #000000;
+  margin:10 10px 10px 10px;
+   font-size:8pt;
+  font-family:Arial;
+}
+.defaultbnt4{
+  padding:0 5px 2px;
+  font-size: 9pt;
+  background: url(Images/butongiua.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  width:90px;
+  height:22px;
+  margin:10 10px 10px 10px;
+  cursor: pointer;
+   font-size:8pt;
+  font-family:Arial;
+}
+.defaultbnt4:hover{
+  padding:0 5px 2px;
+  font-size: 9pt;
+ background: url(Images/butongiua2.png) no-repeat center left;
+  border: none;
+  width:90px;
+  color: #000000;
+  margin:10 10px 10px 10px;
+   font-size:8pt;
+  font-family:Arial;
+}
+.defaultbnt5{
+  padding:0 5px 2px;
+  font-size: 9pt;
+  background: url(Images/butonright.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  width:90px;
+  height:22px;
+  margin:10 10px 10px 10px;
+  cursor: pointer;
+   font-size:8pt;
+   text-align:left;
+  font-family:Arial;
+}
+.defaultbnt5:hover{
+  padding:0 5px 2px;
+  font-size: 9pt;
+ background: url(Images/butonright2.png) no-repeat center left;
+  border: none;
+  width:90px;
+  color: #000000;
+  margin:10 10px 10px 10px;
+   font-size:8pt;
+  font-family:Arial;
+}
+.defaultbnt:hover{
+  padding:0 5px 2px;
+  font-size: 9pt;
+ background: url(Images/buttonOver.png) no-repeat center left;
+  border: none;
+  color: #000000;
+  margin:10 10px 10px 10px;
+}
+.login-base .box-remember{
+  text-align: left;
+  padding-left: 50px;
+}
+ .intro-base{
+    /*float: left;*/
+    clear: right;
+ }
+ .title-base{
+  background: url(Images/menuLogRight.png);
+   height: 28px;
+   /*width: 270px; */
+   /*margin-left: 2px;*/
+  /* clear: left;  */
+ }
+ .title-base .title{
+  /* background: transparent url(Images/TopTitleBg.png) no-repeat right; */
+    color:#000000;
+    font-size:9pt;
+    font-weight:bold;
+    height:28px;
+    line-height:28px;
+    text-align: left;
+ }
+ .intro-base .images{
+   float: left;
+   width: 200px;
+   text-align: center;
+ }
+ .intro-base .links-list{
+   margin:10px 5px 5px 230px;
+
+ }
+ .intro-base .links-list .icons{
+   background: url(Images/icons-link.png) no-repeat center left;
+   width: 9px;
+   height: 15px;
+   float: left;
+ }
+ .intro-base .links-list .link{
+   margin-left: 15px;
+ }
+ .line-base{
+   background:url(Images/content-line.png) repeat-x ;
+   height: 28px;
+   float: left;
+   clear: both;
+   width: 100%;
+   margin-top: 5px;
+ }
+ .quick-search{
+   background: url(Images/quick-searchbg.png) repeat-x ;
+   height: 50px;
+   border: solid 1px #cccccc;
+   margin: 5px 0 5px 0;
+   clear: both;
+   position:relative !important;
+   top:5px !important;
+}
+ .quick-search .text{
+   float: left;
+   height: 51px;
+   line-height: 31px;
+   margin: 0 0 0 20px;
+}
+ .quick-search .dropdown-list{
+   margin: 7px 0 0 20px;
+   float: left;
+}
+  .quick-search select{
+    width: 250px;
+
+
+  }
+
+ .news-block{
+   float: left;
+   width: 45%;
+   margin-left: 5px;
+ }
+  .news-block-copy{
+   float: right;
+   width: 45%;
+   margin-right: 5px;
+ }
+ .news-table{
+   border: none;
+ }
+ .news-table .top-left{
+   background: url(Images/Block-Top-Left.png) no-repeat left bottom;
+   width:14px ;
+   height:30px ;
+ }
+ .news-table .top-center{
+   background: #ffffff url(Images/Block-Top-Center.png) repeat-x left bottom;
+   height:30px ;
+   vertical-align: bottom;
+ }
+ .news-table .top-center .title{
+    background: url(Images/Block-Icon.png) no-repeat left bottom;
+    height: 24px;
+    margin-top: 1px;
+    padding-left: 40px;
+    line-height: 24px;
+    color: #ffffff;
+ }
+ .titleImage
+ {
+ 	background: url(Images/Block-Icon.png) no-repeat left bottom;
+ }
+ .news-table .top-right{
+   background: url(Images/Block-Top-Right.png) no-repeat left bottom;
+   width:14px ;
+   height:30px ;
+ }
+  .news-table .center-left{
+   background: url(Images/Block-Center-Left.png) repeat-y left bottom;
+   width:14px ;
+ }
+ .news-table .center-center{
+   background: #ffffff;
+   padding:5px 5px 5px 10px;
+ }
+ .news-table .center-center .defaultbnt {
+   float: right;
+ }
+
+ .news-table .center-right{
+   background: url(Images/Block-Center-Right.png) repeat-y left bottom;
+   width:14px ;
+ }
+ .news-table .bottom-left{
+   background: url(Images/Block-Bottom-Left.png) no-repeat left top;
+   width:14px ;
+   height:14px ;
+ }
+ .news-table .bottom-center{
+   background: url(Images/Block-Bottom-Center.png) repeat-x left top;
+   height:14px ;
+ }
+ .news-table .bottom-right{
+   background: url(Images/Block-Bottom-Right.png) no-repeat left top;
+   width:14px ;
+   height:14px ;
+ }
+ .icons{
+    background: url(Images/icons.png) no-repeat center;
+    width: 9px;
+    height: 15px;
+    float: left;
+ }
+ .news-links{
+   margin-left: 15px;
+   margin-bottom: 5px;
+ }
+ .infor-member{
+   clear: both;
+
+   position: relative !important;
+    top: 5px !important;
+     margin: 5px 0;
+ }
+.infor-member .top{
+ background: url(Images/top-info.png) no-repeat bottom;
+ width: 467px;
+ height: 20px;
+}
+.infor-member .center{
+  background: url(Images/center-infor.png) repeat-y ;
+  width: 407px;
+  padding: 5px 30px 5px ;
+}
+.infor-member .title
+{
+	 background: url(Images/Block-Icon.png) no-repeat bottom;
+	 width: 467px;
+	 height: 20px;
+}
+.name{
+	width:30%;
+	text-align:right;
+	color: #19506c;
+}
+.resource-name{
+	color: #5f6264;
+}
+.resource-name .inputtext{
+  width:350px
+}
+.form-title{
+ color:#075dfa;
+ font-weight:bold;
+ clear:both;
+ margin:10px 20px;
+ float:left;
+}
+.edu-line {
+border-top:1px solid #1F85C5;
+clear:both;
+font-size:2px;
+margin:10px 5px;
+position:relative;
+top:10px
+}
+.admin-table{
+  border: solid 1px #cdcdcd;
+  min-height: 320px;
+  margin-top: 20px;
+}
+*html .admin-table{
+   height: 320px;
+}
+
+*:first-child+html .admin-table{
+   height: 320px;
+}
+.admin-table td{
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.infor-member .bottom{
+  background: url(Images/bottom-infor.png) no-repeat top;
+  height: 11px;
+  width: 467px;
+}
+.link-control {
+line-height:30px;
+margin:0 0 0 20px;
+}
+.icon-control {
+margin:0 0 0 20px;
+}
+
+
+.footer{
+  background: url(Images/FooterBg.png) repeat-x;
+  height: 50px;
+  clear: both;
+  margin-top: 1px;
+  margin-bottom:5px;
+}
+.footer .left{
+  float: left;
+  color: #8b8174;
+  margin: 10px ;
+}
+.footer .copyright{
+  float: left;
+  color: #5e6266;
+  margin: 20px 0 0 200px ;
+}
+.footer .link-part{
+  color: #982323;
+}
+
+
+/*Gridview*/
+.grid-view
+{
+	background: #f9f9f9;
+	font-size:8pt;
+	font-family:Tahoma;
+	width:100%;
+	border:solid 1px #666666;
+}
+.grid-view th
+{
+	
+	padding-left:5px ! important;
+	padding-left:1px;
+	padding-right:5px ! important;
+	background-color: #2D8ECE;
+	color:#ffffff;
+	line-height:18px;
+    font-size:11px;	
+	padding-top:3px;
+	padding-bottom:3px;
+	text-align:center;
+}
+.title-grid-view
+{
+	/*
+	background-color: #05bafd;
+	margin-top:5px;
+	font-size:8pt;
+    border-top: solid 1px #666666;
+    border-right: solid 1px #666666;
+    color:White ;
+    width: 986px;
+    font-weight:bold ;
+*/
+}
+*html .title-grid-view
+{
+    width: 986px;
+}
+*:first-child+html .title-grid-view
+{
+    width: 986px;
+}
+.title-grid-view td
+{
+    vertical-align:middle;
+    padding:5px 0px;
+    background-color:#2D8ECE;
+    border-left:solid 1px #666666;
+	border-bottom:solid 1px #666666;
+	border-top-style: none;
+    border-right-style: none;
+    
+}
+.grid-view td
+{
+	border-bottom:1px solid #666666;
+	border-left:1px solid #666666;
+	border-style:none none solid solid;
+	padding:0 0;
+	vertical-align:middle;
+
+}
+.grid-view tr
+{
+	
+}
+.grid-view td,
+.grid-view td a
+{
+	color:navy;
+	height:18px;
+	padding-left:5px;
+	padding-right:5px;
+}
+.pager-style td
+{
+	border:none;
+	text-align:right;
+	font-weight:bold;
+	vertical-align:middle;
+}
+.pager-style td a:hover
+{
+	color:#993333;
+}
+.pager-style table
+{
+	border-left:none;
+	width:auto;
+}
+
+.alternating-row {
+background:#d2e9ed none repeat scroll 0 0;
+}
+/* End Gridview*/
+.view-table{
+  background: #f9f9f9;
+  border:none;
+  margin-top:5px;
+  border: solid 1px #dedddd;
+}
+
+.title-diem
+{
+	/*background-image:url(Images/title_1.gif);
+	/*border-left:solid #ffffff;
+	border-color:Silver;*/
+	background-color: #2D8ECE;
+	height:30px;
+	font-size : 11px;
+	font-weight:bold;
+	padding:0 0 0 0;
+	color : White;
+}
+.title-hk-diem
+{
+	padding-left:5px ! important;
+	padding-left:1px;
+	padding-right:5px ! important;
+	border-left:solid 1px #ffffff;
+
+	background-color:#cccccc;
+	line-height:18px;
+    font-size:9pt;
+	padding-top:3px;
+	font-weight:bold;
+	padding-bottom:3px;
+}
+
+.view-table th
+{
+	padding-left:5px ! important;
+	padding-left:1px;
+	padding-right:5px ! important;
+	border-left:solid 1px #ffffff;
+	background-color: #05bafd;
+	color:#ffffff;
+	line-height:18px;
+    font-size:8pt;
+	text-align: center;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+.table-continer-table-diem
+{
+	background-color:White;
+	border:2;
+	padding:0 0 0 0;
+	border-color:Red;
+}
+
+.table-diem
+{
+	background-color:White;
+	border:1;
+	margin-left:0px;
+	border-style:outset;
+	border-width:1px;
+	border-color:Silver;
+	padding:0 0 0 0;
+}
+.row-diemTK
+{
+	background-color:White;
+	border:1;
+	margin-left:0px;
+	border-style:outset;
+	border-width:1px;
+	border-color:Silver;
+	font-size : 10px;
+	font-weight:bold;
+	height:18px;
+	padding-top:2;
+	/*padding:2 0 0 0;*/
+}
+.row-diem
+{
+border:1;
+border-collapse:collapse;
+border-width:1px;	
+border-color:Black;
+}
+.table-continer-table-diem th
+{
+	background-color: #3399ff;
+	font-size: 8pt;
+	font-style:normal;
+	height:18px;
+	text-align:center;
+	border-style:double;
+	border-width:1px;
+	border-color:Orange;
+}
+.view-table td
+{
+	padding-left:5px;
+	padding-right:5px ! important;
+	border-left:solid 1px #dbdbdb;
+    border-bottom: solid 1px #dbdbdb;
+    border-collapse:separate;
+}
+.view-table .note{
+  background: #F0F49F;
+  padding: 5px 10px;
+
+}
+ .timetable{
+ background: #ffffff;
+  border:none;
+  margin-top:5px;
+  border-top: solid 1px #304B8B;
+  border-right: solid 1px #304B8B;
+ }
+ .timetable .numbering{
+  background-color: #B9D1EA;
+}
+ .timetable th
+{
+	padding-left:5px ! important;
+	padding-left:1px;
+	padding-right:5px ! important;
+	border-left:solid 1px #304B8B;
+	background-color: #05bafd;
+	color:#ffffff;
+	line-height:18px;
+    font-size:12px;
+	text-align: center;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.timetable td
+{
+	padding-left:5px;
+	padding-right:5px ! important;
+	border-left:solid 1px #304B8B;
+    border-bottom: solid 1px #304B8B;
+    border-collapse:separate;
+}
+.timetable .note{
+  background: #F0F49F;
+  padding: 5px 10px;
+
+}
+.grid-roll
+{
+  overflow-x:hidden;
+  overflow-y:scroll;
+  border-bottom: solid 1px #666666;
+  border-right:solid 1px #666666;
+  border-left:solid 1px #666666;
+}
+.grid-roll-Vertical
+{
+  overflow-x:scroll ;
+  overflow-y:scroll;  
+  border-bottom: solid 1px #666666;
+  border-right:solid 1px #666666;
+  border-left:solid 1px #666666;
+  border-top:solid 1px #666666;
+}
+.tree-bothRoll
+{
+  overflow-x:scroll ;
+  overflow-y:scroll;
+  border-bottom: solid 1px #666666;
+  border-right:solid 1px #666666;
+  border-left:solid 1px #666666;
+  border-top:solid 1px #666666;
+}
+.grid-roll1
+{
+  text-align:left;  
+  width:350px;
+  padding:13px 13px 13px 13px;
+}
+.grid-roll2
+{
+  overflow-x:hidden;
+  overflow-y:scroll;  
+  border-bottom:solid 1px #666666;
+  border-right:solid 1px #666666;
+  border-left:solid 1px #666666;
+  
+}
+.textTable
+{
+font-family:arial;
+font-size:8pt;
+}
+.backgroundTable
+{
+background: url(Images/bg_snow.gif);	
+}
+.classTable
+{
+	font-family:Arial;
+	font-size:11px;
+	font-weight:bold;
+}
+.TextTitle
+{
+	font-size:13px;
+	font-family:Arial;
+	font-weight:bold;
+}
+.fline 
+{
+clear:both;
+border-top:1px solid #666666;
+height:8px;
+margin:1px,1px,1px,1px;
+padding:1px,1px,1px,1px;
+vertical-align:middle;
+}
+.top-fline
+{
+	height:16px;
+	margin:1px,1px,1px,1px;
+	padding:1px,1px,1px,1px;
+	clear:both;
+}
+
+/*CSS Trung 8*/
+
+.grid_scroll 
+{ 
+  overflow-x: hidden ;
+  overflow-y: auto ;
+  clear: both;
+  }
+  
+.MyCalendar .ajax__calendar_container 
+{
+	border-style:double;
+	border-width:medium;
+    background-color: White;
+    color: #000000;
+    padding:0 0 0 0px;
+ }
+.MyCalendar .ajax__calendar_other .ajax__calendar_day,
+.MyCalendar .ajax__calendar_other .ajax__calendar_year 
+{
+    color:Orange;
+}
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_month,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_year 
+{
+    color: Blue;
+}
+
+.MyCalendar .ajax__calendar_active .ajax__calendar_day,
+.MyCalendar .ajax__calendar_active .ajax__calendar_month,
+.MyCalendar .ajax__calendar_active .ajax__calendar_year 
+{
+    color: Blue;
+    font-weight:bold;
+}
+.MyCalendar .ajax__calendar_header
+{
+	background-color:Scrollbar;
+	padding:0 0 0 0px;
+}
+
+.MyCalendar .ajax__calendar_dayname 
+{
+	color:Blue;
+	text-align:right;
+	padding:0 0px;
+}
+.MyCalendar .ajax__calendar_day 
+{
+	text-align:right;padding:0 0px;cursor:pointer;
+}
+.BorderGrid
+{
+	border-left-width:1px;
+	border-right-width:1px;
+}
+
+
+
+
+/*Dinh dang TextBox*/
+.TextBox
+{
+	font-size:8pt;
+	font-family:Tahoma;
+	height:14px;
+	
+	
+}
+
+/*Dinh dang cho Label*/
+.Label
+{
+	font-size:8pt;
+	font-family:Tahoma;
+}
+
+/*Dinh dang Button*/
+.DefaultButton
+{
+	height:22px;
+	font-family:Tahoma;
+	font-size:8pt;
+}
+
+/*DINH DANG DROPDOWNLIST*/
+.DropDown
+{
+
+	font-family:Tahoma;
+	font-size:9pt;
+}
+
+.TextInfor
+{
+	font-size:9pt;
+	font-family:Tahoma;
+	color:#000000;
+	line-height:13pt;
+}
+.ColorTitle
+{
+	color:blue;
+	font-family:Tahoma;
+	font-size:10pt;
+	font-weight:bold;
+}
+baseBackground
+{
+	background: url(App_Themes/Standard/Images/baseBackground.png);
+	width:100%;
+	height:100%;
+}
+.LogoFooter
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	color:maroon;
+}
+.BaseFontFooter
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	color:#595959;
+}
+.BaseFontContent
+{
+	font-family:Arial;
+	font-size:9pt;
+	color:#595959;
+}
+.deFaultTitle
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	color:#595959;
+}
+.filters
+{
+	border: solid 1px #dcdbdb;
+	color:#000000;
+    font-size:9pt;
+    height:60px;
+    line-height:20px;
+    text-align: left;
+    
+}
+.divStyle
+{
+	border: solid 1px #fafafa;
+	border-collapse:collapse;
+	width:100%;
+}
+.titleTinTuc
+{
+	font-family:Tahoma;
+	font-size:9pt;
+	font-weight:bold;
+	color:Maroon;
+}
+
+/*Text*/
+.textbody
+{
+	font-family:tahoma;
+	font-size:8pt;
+	color:Black;
+}
+/* end */
+
+
+.body-table
+{
+	/*background: #f9f9f9;border:none 1px black;*/
+	font-size:8pt;
+	font-family:Tahoma;
+	width:100%;
+	
+	border-right:none 1px black;
+	color:Navy;
+}
+
+
+.body-table th
+{
+	padding-left:5px ! important;
+	padding-left:1px;
+	padding-right:5px ! important;
+	border-left:solid 1px #666666;
+	background-color: #2D8ECE;
+	color:#ffffff;
+	line-height:18px;
+    font-size:11px;	
+	padding-top:3px;
+	padding-bottom:3px;
+}
+.title-table
+{
+	background-color: #05bafd;
+	margin-top:5px;
+	font-size:8pt;
+    border-top: solid 1px #666666;
+    border-right: solid 1px #666666;
+    color:White ;
+    width: 100%;
+    font-weight:bold ;
+}
+*html .title-table
+{
+    width: 990px;
+}
+*:first-child+html .title-table
+{
+    width: 990px;
+}
+.title-table td
+{
+    vertical-align:middle;
+    padding:5px 0px;
+    background-color:#2D8ECE;
+    border-left:solid 1px #666666;
+	border-bottom:solid 1px #666666;
+	border-top-style: none;
+    border-right-style: none;
+    
+}
+.body-table td
+{
+	border-bottom:1px solid #666666;
+	border-left:1px solid #666666;
+	border-style:none none solid solid;
+	padding:0 0;
+	vertical-align:middle;
+
+}
+.body-table td a
+{
+	/*color:navy;*/
+}
+.TextThongTin
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	color:#00000a;
+	font-weight:normal;
+	text-align:left;
+	line-height:19px;
+}
+.TextTitle
+{
+	font-family:Tahoma;
+	font-size:9pt;
+	font-weight:100;
+	color:Maroon;
+}
+.NgayTitle
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	font-weight:normal;
+	color:Gray;
+	font-style:italic;
+}
+.ChiTiet
+{
+	background-color:white;
+	border-width:1px;
+	border-collapse:collapse;
+	border-color:Gray;
+}
+.kecham
+{
+	background-image:url(Images/kecham.png);
+}
+.tatcabantin
+{
+	font-family:Tahoma;
+	font-size:8pt;
+	font-weight:normal;
+}
+.rowOnmouseover-GridView 
+{ 
+background-color:#DAE6F8; 
+
+} 
+
+.Lable
+{
+	font-size:12px;
+	font-family:Tahoma;
+	
+}
+
+
+.MyCalendar .ajax__calendar_container {
+    border:1px solid #646464;
+    background-color: lemonchiffon;
+    color: red;
+}
+.MyCalendar .ajax__calendar_other .ajax__calendar_day,
+.MyCalendar .ajax__calendar_other .ajax__calendar_year {
+    color: black;
+}
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_month,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_year {
+    color: black;
+}
+.MyCalendar .ajax__calendar_active .ajax__calendar_day,
+.MyCalendar .ajax__calendar_active .ajax__calendar_month,
+.MyCalendar .ajax__calendar_active .ajax__calendar_year {
+    color: black;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body background="App_Themes/Standard/Images/background.png" onload="ShowMess()">
+    <form name="aspnetForm" method="post" action="./default/default.php" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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aW9uLWxpbmU6IG5vbmU7Ij54ZW0gdGjDtG5nIGLDoW88L2E+KSAtJm5ic3A7VGjDtG5nIGLDoW8gdOG6rXAgxJBLTUggKGTDoG5oIGNobyBTViBuxINtIHRo4bupIDEpICg8YSBocmVmPSJodHRwOi8vdGhvbmd0aW5kYW90YW8uc2d1LmVkdS52bi9VcGxvYWQvZmlsZS9ISzIyMl9UQl90YXBka21oLnBkZiIgc3R5bGU9InRleHQtZGVjb3JhdGlvbi1saW5lOiBub25lOyI+eGVtIHRow7RuZyBiw6FvPC9hPik8YnIgLz48L3NwYW4+PHN0cm9uZyBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyI+KiBDaHXhuqluIGLhu4sgxJHEg25nIGvDvSBtw7RuIGjhu41jPC9zdHJvbmc+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsiPiZuYnNwOzxiciAvPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyI+PHN0cm9uZz5CxrDhu5tjJm5ic3A7PC9zdHJvbmc+PHN0cm9uZz4xLiZuYnNwO1hlbSBz4buVIHRheSDEkcSDbmcga8O9IG3DtG4gaOG7jWM8L3N0cm9uZz4mbmJzcDs8YnIgLz48L3NwYW4+PHN0cm9uZyBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyI+KiDEkOG6t2MgYmnhu4d0IGzGsHUgw70ga2hpIMSRxINuZyBrw70gbcO0biBo4buNYyZuYnNwOzxiciAvPjwvc3Ryb25nPjxzdHJvbmcgc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsiPkLGsOG7m2MgMi48L3N0cm9uZz48c3Ryb25nIHN0eWxlPSJmb250LXNpemU6IDE2cHg7Ij4mbmJzcDvEkMSDbmcga8O9IG3DtG4gaOG7jWMgKHThu6sgMDUvMTIgxJHhur9uIDE0LzEyLzIwMjIpPGJyIC8+PC9zdHJvbmc+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsiPjxzdHJvbmc+Qsaw4bubYyAzLiBYZW0gbmjDs20vIGzhu5twIGLhu4sgaOG7p3kgZG8gc+G7kSBsxrDhu6NuZyBTViDEkcSDbmcga8OtIHF1w6Egw610PGJyIC8+PC9zdHJvbmc+PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij4mbmJzcDsgJm5ic3A7ICZuYnNwO1Row7RuZyBiw6FvIMSQS01IICjEkeG7o3QgYuG7lSBzdW5nKSAoa8OobSBEUyBuaMOzbSBs4bubcCBi4buLIGjhu6d5LCBt4bufIGLhu5Ugc3VuZykgxJE8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPsaw4bujYyB0aMO0bmcgdGluIHThuqFpIHdlYiBQLiDEkMOgbyB04bqhbyB04burIDE3ZywgMTYvMTIvMjIuJm5ic3A7PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7Ij5E4buvIGxp4buHdSBUS0IgxJHGsOG7o2MgY+G6rXAgbmjhuq10IChzYXUga2hpIHjhu60gbMOtIG5ow7NtIGzhu5twIGLhu4sgaOG7p3kpIDwvc3Bhbj48c3Ryb25nIHN0eWxlPSJmb250LXNpemU6IDE2cHg7Ij504burIDE2ZywgbmfDoHkgMTkvMTIvMjAyMjwvc3Ryb25nPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7Ij4uPGJyIC8+PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij48c3Ryb25nPkLGsOG7m2MgNC48L3N0cm9uZz48L3NwYW4+PHN0cm9uZyBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyI+Jm5ic3A7PC9zdHJvbmc+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPjxzdHJvbmc+xJDEg25nIGvDvSBtw7RuIGjhu41jIMSR4bujdCBi4buVIHN1bmcgKHThu6sgMjAvMTIgxJHhur9uIDIzLzEyLzIwMjIpPC9zdHJvbmc+Jm5ic3A7PGJyIC8+PC9zcGFuPjxzdHJvbmcgc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsiPiogWOG7rSBsw70ga+G6v3QgcXXhuqMgxJBLTUggc2F1IMSR4bujdCDEkEtNSCBi4buVIHN1bmc8YnIgLz48L3N0cm9uZz48c3Ryb25nIHN0eWxlPSJmb250LXNpemU6IDE2cHg7Ij5CxrDhu5tjIDUuIMSQw7NuZyBo4buNYyBwaMOtICh04burIDA5LzAxIMSR4bq/biAxMy8wMS8yMDIzKSZuYnNwOzwvc3Ryb25nPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij4oeGVtIGNoaSB0aeG6v3QgdOG6oWkgbeG7pWMgdGluICLEkMOzbmcgaOG7jWMgcGjDrSIgLSBUaW4gdOG7qWMgc+G7sSBraeG7h24pPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij48YnIgLz48L3NwYW4+PHN0cm9uZyBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyI+Jm5ic3A7PC9zdHJvbmc+PHN0cm9uZyBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyI+Q2jhu5F0IHPhu5EgbGnhu4d1IGjhu41jIHBow60gxJHDoyDEkcOzbmcgPC9zdHJvbmc+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPsSR4bq/biBo4bq/dCBuZ8OgeSAxNS8wMS8yMDIzOzwvc3Bhbj48c3Ryb25nIHN0eWxlPSJmb250LXNpemU6IDE2cHg7Ij4gKMSR4bujdCAyKSDEkeG6v24gaOG6v3QgbmfDoHkgMTcvMDEvMjAyMy48L3N0cm9uZz48c3Ryb25nIHN0eWxlPSJmb250LXNpemU6IDE2cHg7Ij4mbmJzcDs8YnIgLz48L3N0cm9uZz48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+PHN0cm9uZz4mbmJzcDsgJm5ic3A7ICZuYnNwOyAmbmJzcDsgJm5ic3A7IEPhuq1wIG5o4bqtdCB0aMO0bmcgdGluIDwvc3Ryb25nPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+bMO6YyAxN2csIDE2LzAxLzIwMjM7IGzDumMgMTBnMzAsIDE3LzAxLzIwMjM7PHN0cm9uZz4gKMSR4bujdCAyKSBsw7pjIDE2ZywgMTkvMDEvMjAyMzwvc3Ryb25nPi48L3NwYW4+PGJyIC8+PC9wPjxwPjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTogVGFob21hOyI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsiPjxzdHJvbmc+Qsaw4bubYyA2LiBYZW0gZGFuaCBzw6FjaCBu4bujIGjhu41jIHBow60gc2F1IMSR4bujdCDEkcOzbmcgaOG7jWMgcGjDrSA8L3N0cm9uZz4odMOtbmggxJHhur9uIGjhur90IG5nw6B5IDMxLzAxLzIwMjMpPGJyIC8+PC9zcGFuPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+Jm5ic3A7ICZuYnNwO0Rhbmggc8OhY2ggc+G6vSDEkcaw4bujYyB0aMO0bmcgdGluIMSR4bq/biBjw6FjIGtob2EvIG5nw6BuaCDEkeG7gyB0aMO0bmcgYsOhbyBjaG8gU1YsIMSR4buTbmcgdGjhu51pIHPhur0gdGjDtG5nIHRpbiB04bqhaSB3ZWIgVHLGsOG7nW5nLjxiciAvPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+Jm5ic3A7ICZuYnNwOyArIERTU1Ygbmdvw6BpIHPGsCBwaOG6oW0gdsOgIHPGsCBwaOG6oW0gSzIyIG7hu6MgaOG7jWMgcGjDrSAoPGEgaHJlZj0iVXBsb2FkL2ZpbGUvSEsyMjJfRFMgbm8gSFAgLSBuZ29haVNQIC0gU1AgSzIyIHRpbmggZGVuIG5nYXkgMzEtMS0yMDIzLnBkZiI+eGVtIGRhbmggc8OhY2g8L2E+KTombmJzcDs8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPlNWIHPhur0gYuG7iyBo4buneSB04bqldCBj4bqjIGvhur90IHF14bqjIMSQS01IPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij4mbmJzcDs8YnIgLz4mbmJzcDsgJm5ic3A7ICZuYnNwOyAmbmJzcDsoU1YgbOG7m3AgY2jhuqV0IGzGsOG7o25nIGNhbyBjw7MgRFMgcmnDqm5nIGfhu61pIEtob2EpJm5ic3A7PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij4mbmJzcDs8YnIgLz48L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPiZuYnNwOyAmbmJzcDsgKyBEU1NWIHPGsCBwaOG6oW0mbmJzcDs8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPihLMTgsIDE5LCAyMCkmbmJzcDs8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPm7hu6MgaOG7jWMgcGjDrSBo4buNYyBs4bqhaSZuYnNwOyAoPC9zcGFuPjxhIGhyZWY9IlVwbG9hZC9maWxlL0hLMjIyX0RTIG5vIEhQIC0gaG9jIGxhaSBTUCAtIHRpbmggZGVuIG5nYXkgMzEtMS0yMDIzLnBkZiIgc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPnhlbSBkYW5oIHPDoWNoPC9hPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij4pOiBTViBz4bq9IGLhu4sgaOG7p3kgdOG6pXQgY+G6oyBo4buNYyBwaOG6p24gxJBLIGjhu41jIGzhuqFpPGJyIC8+PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij4mbmJzcDsgJm5ic3A7TeG7jWkgdGjhuq9jIG3huq9jIHbhu4EgaOG7jWMgcGjDrSwgU1YgbGnDqm4gaOG7hyB24bubaSBQaMOybmcgS+G6vyBob+G6oWNoIFTDoGkgY2jDrW5oIChjxqEgc+G7nyBjaMOtbmgsIHBow7JuZyBIQjAwNiwgMDA3KSBob+G6t2MgZW1haWwgcF9rZWhvYWNodGFpY2hpbmhAc2d1LmVkdS52biwgaOG6oW4gY2jDs3QgbMOgIDE2ZywgMDMvMDIvMjAyMy48YnIgLz48L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OiBUYWhvbWE7Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyI+Jm5ic3A7ICZuYnNwO0zGsHUgw70gc2F1IHRo4budaSDEkWnhu4NtIGNo4buRdCBo4buNYyBwaMOtICho4bq/dCBuZ8OgeSAzMS8wMS8yMDIzKSB2w6AgcGjDoXQgaMOgbmggRFMgbuG7oyBo4buNYyBwaMOtLCB2aeG7h2MgU1YgdOG7sSDDvSBjaHV54buDbiBraG/huqNuIGjhu41jIHBow60gbcOgIGtow7RuZyBiw6FvIGPDoW8gduG7m2kgUC4gS0hUQyBsw6Aga2jDtG5nIGjhu6NwIGzhu4cgKHbDrCBjw7MgbGnDqm4gcXVhbiDEkeG6v24ga+G6v3QgcXXhuqMgxJBLTUgsIFRLQikuPC9zcGFuPjxiciAvPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7Ij48c3Ryb25nPkLGsOG7m2MgNy4gWGVtIFRLQiBjaMOtbmggdGjhu6ljIDwvc3Ryb25nPih04burIDAyLzAyLzIwMjMpPC9zcGFuPjxiciAvPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+Jm5ic3A7ICZuYnNwO1Ro4budaSBraMOzYSBiaeG7g3UgKGvhur90IHF14bqjIMSQS01IKSBj4bunYSBTViDEkcaw4bujYyBj4bqtcCBuaOG6rXQgdOG7qyAxMmcsIDAyLzAyLzIwMjM8YnIgLz48L3NwYW4+PHN0cm9uZyBzdHlsZT0iZm9udC1mYW1pbHk6IFRhaG9tYTsgZm9udC1zaXplOiAxNnB4OyI+Jm5ic3A7ICZuYnNwOzwvc3Ryb25nPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij4oMDMvMDIvMjAyMykgSOG7jWMga+G7syBJSSwgMjAyMi0yMDIzIGLhuq90IMSR4bqndSB04burIG5nw6B5IDA2LzAyLzIwMjMsIMSR4buBIG5naOG7iyBTViB2w6AgR1Yga2nhu4NtIHRyYSBs4bqnbiBjdeG7kWkgVGjhu51pIGtow7NhIGJp4buDdSBo4buNYyB04bqtcC8gZ2nhuqNuZyBk4bqheSAobMawdSDDvSBjw7MgxJFp4buBdSBjaOG7iW5oIHBow7JuZyBo4buNYyBj4bunYSB2w6BpIG5ow7NtIGzhu5twLCBjxINuIGPhu6kgcsOgIHNvw6F0IGPhu6dhIEJhbiBI4bqhIHThuqduZyBjxqEgc+G7nyk8YnIgLz48L3NwYW4+PHN0cm9uZyBzdHlsZT0iZm9udC1mYW1pbHk6IFRhaG9tYTsgZm9udC1zaXplOiAxNnB4OyI+PGltZyBzcmM9Imh0dHA6Ly90aG9uZ3RpbmRhb3Rhby5zZ3UuZWR1LnZuL1VwbG9hZC9pbWFnZS9OZXcuZ2lmIiBhbHQ9IiIgLz48L3N0cm9uZz48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+PHNwYW4gc3R5bGU9ImNvbG9yOiAjZmYwMDAwOyI+PHN0cm9uZz4qIFLDunQgbcO0biBo4buNYzwvc3Ryb25nPiAodOG7qyB0deG6p24gdGjhu6kgMyBj4bunYSBo4buNYyBr4buzKSAoeGVtIGNoaSB0aeG6v3QgbOG6oWkgbeG7pWMgIlLDunQgbcO0biBo4buNYyIgLSBwaOG6p24gIlRpbiB04bupYyBz4buxIGtp4buHbiIpJm5ic3A7Jm5ic3A7PC9zcGFuPjwvc3Bhbj48L3A+PHAgc3R5bGU9ImZvbnQtZmFtaWx5OiBUYWhvbWE7IGZvbnQtc2l6ZTogMTAuNjY2N3B4OyI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsiPi0tLS08YnIgLz48L3NwYW4+PHN0cm9uZyBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyI+Q8OBQyBUSMOUTkcgVElOIEtIw4FDPC9zdHJvbmc+PC9wPjxwPjxzcGFuIHN0eWxlPSJjb2xvcjogI2ZmMDAwMDsiPjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTogVGFob21hOyI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsiPjxzdHJvbmc+KyBL4bq/dCBxdeG6oyBo4buNYyB04bqtcCBo4buNYyBrw6wgSOG7jWMga8OsIEksIE7Eg20gaOG7jWMgMjAyMi0yMDIzPGJyIC8+PC9zdHJvbmc+PC9zcGFuPjwvc3Bhbj48L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPiZuYnNwOzxzdHJvbmc+PGVtPi0gxJBp4buDbSBxdcOhIHRyw6xuaDo8L2VtPjwvc3Ryb25nPiDEkcaw4bujYyZuYnNwOzwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+dGjDtG5nIHRpbiB04burIDExZywgMTEvMDEvMjAyMzxiciAvPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+Jm5ic3A7ICZuYnNwOyBO4bq/dSBjw7MgdGjhuq9jIG3huq9jIHbhu4EgxJBRVCwmbmJzcDs8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPlNWIGxpw6puIGjhu4cgduG7m2kgR1YgcGjhu6UgdHLDoWNoIG5ow7NtIGzhu5twLiA8c3BhbiBzdHlsZT0idGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7Ij5UaOG7nWkgaOG6oW4gxJHhu4MgR1YgxJFp4buBdSBjaOG7iW5oIMSQUVQgbMOgIDA2LzAyLzIwMjM8L3NwYW4+LiA8YnIgLz4mbmJzcDsgJm5ic3A7IEdWIHPhur0gdHLhuqMgbOG7nWkga+G6v3QgcXXhuqMgY2hvIFNWIChjw7MvIGtow7RuZyBjw7MgxJFp4buBdSBjaOG7iW5oIMSRaeG7g20pLjxiciAvPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+Jm5ic3A7ICZuYnNwOyBTViBj4bqnbiBsacOqbiBo4buHIHRyb25nIHRo4budaSBnaWFuIHPhu5ttIG5o4bqldCBjw7MgdGjhu4MsIGNo4bqtbSBuaOG6pXQgbMOgIHRyxrDhu5tjIHRo4budaSBo4bqhbiBuw7NpIHRyw6puIDMgbmfDoHkgxJHhu4MgR1YgY8OzIHRo4budaSBnaWFuIHPGsHUgdHJhLCBwaOG6o24gaOG7k2kgdsOgIGzDoG0gdGjhu6cgdOG7pWMgxJFp4buBdSBjaOG7iW5oIChu4bq/dSBjw7MpLjxiciAvPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+Jm5ic3A7ICZuYnNwO8SQaeG7g20gcXXDoSB0csOsbmggxJHGsOG7o2MgxJFp4buBdSBjaOG7iW5oIHRoZW8gdMaw4budbmcgdHLDrG5oIGPhu6dhIEdWIMSRxrDhu6NjIGPhuq1wIG5o4bqtdCB04burIDEyZywgMDkvMDIvMjAyMzxiciAvPjxzcGFuIHN0eWxlPSJjb2xvcjogI2ZmMDAwMDsiPiZuYnNwOzxzdHJvbmc+PGVtPi0gxJBp4buDbSB0aGkga+G6v3QgdGjDumMgaOG7jWMgcGjhuqduPC9lbT48L3N0cm9uZz48YnIgLz48L3NwYW4+PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij4mbmJzcDsgJm5ic3A7PHN0cm9uZz5EYW5oIHPDoWNoIGhvw6NuIHRoaSBo4buNYyBr4buzPC9zdHJvbmc+ICg8YSBocmVmPSJVcGxvYWQvZmlsZS9ISzIyMV9Ib2FuVGhpSEsucGRmIj54ZW0gZGFuaCBzw6FjaDwvYT4pIMSRw6MgxJHGsOG7o2MgY2h1eeG7g24gxJHhur9uIGPDoWMga2hvYSDEkeG7gyB0aMO0bmcgdGluIMSR4bq/biBTVjxiciAvPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+Jm5ic3A7ICZuYnNwOyogQ8OhYyBo4buNYyBwaOG6p24gbcO0biBjaHVuZzogxJHGsOG7o2MgdGjDtG5nIHRpbiB04burIDEyZywgMDEvMDIvMjAyMyAoxJHDoyDEkcaw4bujYyB44butIGzDvSDEkWnhu4NtIGhvw6NuIHRoaSBtw7RuIGNodW5nKTxiciAvPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+Jm5ic3A7ICZuYnNwOyogQ8OhYyBo4buNYyBwaOG6p24gbcO0biBjaHV5w6puIG3DtG46IHRow7RuZyB0aW4gdOG7qyAxNWcsIDA5LzAyLzIwMjMmbmJzcDs8L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPijEkcOjIMSRxrDhu6NjIHjhu60gbMO9IMSRaeG7g20gaG/Do24gdGhpIG3DtG4gY2h1ecOqbiBtw7RuKTwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+PHNwYW4gc3R5bGU9ImNvbG9yOiAjZmYwMDAwOyI+PGJyIC8+PHN0cm9uZz4mbmJzcDsgUGjDumMga2jhuqNvIGLhuqNpIHRoaSBr4bq/dCB0aMO6YyBo4buNYyBwaOG6p248L3N0cm9uZz48YnIgLz4mbmJzcDsgJm5ic3A7U1YgeGVtIHF1eSB0csOsbmggcGjDumMga2jhuqNvICh2w6AgbeG6q3UgxJHGoW4pIHThuqFpIHdlYiBQLiDEkMOgbyB04bqhbyAoZGFvdGFvLnNndS5lZHUudm4pLCBt4bulYyBUcmEgY+G7qXUgdsSDbiBi4bqjbiAtIGJp4buDdSBt4bqrdTxiciAvPjwvc3Bhbj48L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPiZuYnNwOyAmbmJzcDsqIE3DtG4gY2h1bmc6IHNhdSBraGkgY8O0bmcgYuG7kSDEkWnhu4NtIHbDoG8gMDEvMDIvMjAyMywgbmjhuq1uIMSRxqFuIHThu6sgMDIvMDIgxJHhur9uIGjhur90IDA3LzAyLzIwMjM8YnIgLz48L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPiZuYnNwOyAmbmJzcDsgU1YgdHJhIGPhu6l1IGvhur90IHF14bqjIFBLIG3DtG4gY2h1bmcgdOG6oWkgd2ViIFBow7JuZyDEkMOgbyB04bqhby4gxJBp4buDbSBzYXUgUEsgxJHDoyDEkcaw4bujYyBj4bqtcCBuaOG6rXQgdOG7qyAxNmcsIDI0LzAyLzIwMjM8YnIgLz48L3NwYW4+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPiZuYnNwOyAmbmJzcDsqIDwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+TcO0biBjaHV5w6puIG3DtG46IHNhdSBraGkgY8O0bmcgYuG7kSDEkWnhu4NtIHbDoG8gMDkvMDIvMjAyMywgbmjhuq1uIMSRxqFuIHThu6sgMDkvMDIgxJHhur9uIGjhur90IDIwLzAyLzIwMjM8YnIgLz48L3NwYW4+PHN0cm9uZyBzdHlsZT0iZm9udC1mYW1pbHk6IFRhaG9tYTsgZm9udC1zaXplOiAxNnB4OyI+PGltZyBzcmM9Imh0dHA6Ly90aG9uZ3RpbmRhb3Rhby5zZ3UuZWR1LnZuL1VwbG9hZC9pbWFnZS9OZXcuZ2lmIiBhbHQ9IiIgLz48L3N0cm9uZz48c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6IFRhaG9tYTsgZm9udC1zaXplOiAxNnB4OyI+PHNwYW4gc3R5bGU9ImNvbG9yOiAjZmYwMDAwOyI+Jm5ic3A7U1YgdHJhIGPhu6l1IGvhur90IHF14bqjIFBLIG3DtG4gY2h1ecOqbiBtw7RuIHThuqFpIHdlYiBQaMOybmcgxJDDoG8gdOG6oW8gdOG7qyAwNy8wMy8yMDIzLiBUaMO0bmcgdGluIMSRaeG7g20gKMSRaeG7g20gaOG7jWMgcGjhuqduLCDEkWnhu4NtIHThu5VuZyBr4bq/dCBo4buNYyBr4buzKSBzYXUgUEsgxJHGsOG7o2MgY+G6rXAgbmjhuq10IHThu6sgMTJnLCAwNy8wMy8yMDIzLjwvc3Bhbj48L3NwYW4+PC9wPjxwPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7IGNvbG9yOiAjZmYwMDAwOyI+PHN0cm9uZz4rIFThu5VuZyBr4bq/dCBo4buNYyBr4buzPGJyIC8+PC9zdHJvbmc+PC9zcGFuPjxzdHJvbmcgc3R5bGU9ImZvbnQtZmFtaWx5OiBUYWhvbWE7IGZvbnQtc2l6ZTogMTZweDsiPiZuYnNwOyogWMOpdCBjaOG7qW5nIGNo4buJIEdEUVAtQU4gdsOgIHjDqXQgxJHhuqF0IG3DtG4gR0RUQyBzYXUgSEsgSSwgMjAyMi0yMDIzPC9zdHJvbmc+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPiZuYnNwOzxiciAvPiZuYnNwOyAmbmJzcDsgJm5ic3A7KGNo4bunIHnhur91IGNobyBLaMOzYSAxOSBzYXUgNyBo4buNYyBr4buzLCBz4bq9IHjDqXQgdGnhur9wIHNhdSBISyBJSSwgMjAyMi0yMDIzLCB04bupYyBISyB0aOG7qSA4KTwvc3Bhbj48YnIgc3R5bGU9ImZvbnQtZmFtaWx5OiBUYWhvbWE7IGZvbnQtc2l6ZTogMTZweDsiIC8+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFRhaG9tYTsiPiZuYnNwOyAmbmJzcDsgS+G6v3QgcXXhuqMgeMOpdCBk4buxIGtp4bq/biDEkcaw4bujYyBn4butaSDEkeG6v24gY8OhYyBraG9hLyBuZ8OgbmggdOG7qyAxMy8wMi8yMDIzPC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7IGNvbG9yOiAjZmYwMDAwOyI+PGJyIC8+PHN0cm9uZz4mbmJzcDsqIFjDqXQgY+G6o25oIGLDoW8ga+G6v3QgcXXhuqMgaOG7jWMgdOG6rXAgLSBideG7mWMgdGjDtGkgaOG7jWM8L3N0cm9uZz4gKMSQ4bujdCBo4buNcCB4w6l0IG5nw6B5IDIxLzAyLzIwMjMpPGJyIC8+PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij4mbmJzcDsgJm5ic3A7IEvhur90IHF14bqjIHjDqXQgZOG7sSBraeG6v24gxJHGsOG7o2MgZ+G7rWkgxJHhur9uIGPDoWMga2hvYS8gbmfDoG5oIHThu6sgMTQvMDIvMjAyMywgcGjhuqNuIGjhu5NpIHRyxrDhu5tjIDEwZywgMjAvMDIvMjAyMzwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+PGJyIC8+PHN0cm9uZz4mbmJzcDsqIELhuqNuZyDEkWnhu4NtIHThu5VuZyBo4bujcCAodGhlbyBs4bubcCkgSEsgSSwgMjAyMi0yMDIzPC9zdHJvbmc+PGJyIC8+PC9zcGFuPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBUYWhvbWE7Ij4mbmJzcDsgJm5ic3A7IMSQxrDhu6NjIGfhu61pIMSR4bq/biBjw6FjIGtob2EvIG5nw6BuaCB2w6AgUGjDsm5nIEPDtG5nIHTDoWMgU1YgdOG7qyAxNy8wMi8yMDIzPC9zcGFuPjwvcD48cD48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyBjb2xvcjogI2ZmMDAwMDsiPjxzdHJvbmc+KyBYw6l0IHThu5F0IG5naGnhu4dwIMSQ4bujdCAxIE7Eg20gMjAyMyZuYnNwOzwvc3Ryb25nPijEkOG7o3QgaOG7jXAgeMOpdCBuZ8OgeSAyMS8wMi8yMDIzKTxiciAvPjwvc3Bhbj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogVGFob21hOyI+Jm5ic3A7ICZuYnNwOyBL4bq/dCBxdeG6oyB4w6l0IGThu7Ega2nhur9uIMSRxrDhu6NjIGfhu61pIMSR4bq/biBjw6FjIGtob2EvIG5nw6BuaCB04burIDE1LzAyLzIwMjMsIHBow6BuIGjhu5NpIHRyxrDhu5tjIDEwZywgMjAvMDIvMjAyMzxiciAvPjwvc3Bhbj48c3Ryb25nIHN0eWxlPSJmb250LWZhbWlseTogVGFob21hOyBm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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=h_54o1uemFlhUOFXXg7SOX7TE3vwXtKtFxPowWGd4Vmx1klMEgFT5EM34Qz9-cmNT_6Xqb7gckp9H6ItXVb-VTMUiX41&amp;t=637812208157966200" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+            function ShowMsgBox(type,message,height,width)
+            {
+                if(width == undefined)
+                    width = '340';
+                if(height == undefined)
+                    height = '60';
+                var ajaxModal = $get('ctl00_ContentPlaceHolder1_ctl00_MessageBox1_ajaxModal');
+                var headerText = $get('ctl00_ContentPlaceHolder1_ctl00_MessageBox1_lblPopupHeader');
+                $get('ctl00_ContentPlaceHolder1_ctl00_MessageBox1_lblMessageDisplay').innerHTML = message;
+                $get('ctl00_ContentPlaceHolder1_ctl00_MessageBox1_panelMessageBox').style.width = width+'px';        
+                $get('ctl00_ContentPlaceHolder1_ctl00_MessageBox1_panelBody').style.height = height+'px';
+                $get('ctl00_ContentPlaceHolder1_ctl00_MessageBox1_ctl03').style.width = (parseInt(width) - 70) +'px';  
+                $get('ctl00_ContentPlaceHolder1_ctl00_MessageBox1_lblMessageDisplay').style.width = (parseInt(width) - 80) +'px'; 
+                var imgType = $get('ctl00_ContentPlaceHolder1_ctl00_MessageBox1_ctl02');
+                if(type.toLowerCase() == 'success'){
+                    headerText.innerHTML = 'Successful';
+                    imgType.src = '/WebResource.axd?d=lUqI9NgaOB-N_7IL4fclqMc85l51tsX-KDffcAO050m3l1aPwGkPcspQGgSFBUpFj4KKhmIgFcB4IDPIz4x8ip212-8cq3Jhm9UJl9Xfp-_P2zy4xAxgQp6gVaMD6CExbZpbnM9Krh9ijg6-2M1IQsNT5COgQdFyPtpU6_McNFnhz60D0&t=637782889760000000';
+                }
+                else if(type.toLowerCase() == 'error'){
+                     headerText.innerHTML = 'Error';
+                     imgType.src = '/WebResource.axd?d=LuIxakntdq9RKurovY5_cxtCaVcoG28etzTSvwxeXvfCQULRnDbKEDB6sxlUk9HRbpEwKUXScl5GCWJwZ9x-YlrFHczU4HylqufqXQSdmo_XjrH7wi7j_NmwFnI8lGRnLUwOgFkQpWyBhZ-djSDKmEseFoq_n4x0tO_l8AAnSjxhUBT20&t=637782889760000000';
+                }
+                else if(type.toLowerCase() == 'warning'){
+                     headerText.innerHTML = 'Warning';
+                     imgType.src = '/WebResource.axd?d=OWytkJePKXNMkb6iQrGOLvmfVgm44DO24KfQCEUWl25WQHNH49_nzyGTM9Y7XGaUxrbe7e2HC4TKdDbeMRusyT_GLrKaY0lAbkwSiS-UH4GeE0GYBhMXK2M_zUMO0fBcVebYULB5I-FsrMuuH5ZssCIBJerFRs6XcWB5jFiG29C8vDDQ0&t=637782889760000000';
+                }
+                else{
+                     headerText.innerHTML = 'Information';
+                     imgType.src = '/WebResource.axd?d=OWytkJePKXNMkb6iQrGOLvmfVgm44DO24KfQCEUWl25WQHNH49_nzyGTM9Y7XGaUxrbe7e2HC4TKdDbeMRusyT_GLrKaY0lAbkwSiS-UH4GeE0GYBhMXK2M_zUMO0fBcVebYULB5I-FsrMuuH5ZssCIBJerFRs6XcWB5jFiG29C8vDDQ0&t=637782889760000000';
+                }
+               
+                $find('ctl00_ContentPlaceHolder1_ctl00_MessageBox1_ajaxModal').show();
+                $get('ctl00_ContentPlaceHolder1_ctl00_MessageBox1_btnOk').focus();
+            }
+            //]]>
+</script>
+
+<script type="text/javascript" src="/ajaxpro/prototype.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/core.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/converter.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/EduSoft.Web.DefaultMaster,EduSoft.Web.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/EduSoft.Web.UC.Logout,EduSoft.Web.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/EduSoft.Web.UC.GioiThieu,EduSoft.Web.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/EduSoft.Web.UC.DangNhap,EduSoft.Web.ashx"></script>
+<script type="text/javascript" src="/ajaxpro/EduSoft.Web.UC.Footer,EduSoft.Web.ashx"></script>
+
+<script src="/ScriptResource.axd?d=jxBbiuTPjVcQ7Yuoixj43bZ6ha0OKKmWHY9mjcEsWxPefz0YvjsCTkPDQ35m-1Wdy5rbvnBm7rzOy1I6jQwFUnqZzhHVjk4NkCMxGjvPlDKWG1OQlU_vp5mdzhyIZGDK1LnQEA2&amp;t=661887c8" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=krDrEITwOm-YTytHBl8AFxQESV19_ZjpJzGLeaMJaCASYS4ov87Is9KNqjhKM69eT3ma-2DOjbN6E7r6CI--ElpVsUDnXIrSoJcrgRsow3FqQR8kE14-VNwv9yYJMlm4eWJon_c4pFTeaKkOEtPMRlPcgmM1&amp;t=3f4a792d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ivMXU2FqjjgFpo06fr5QFVYQ5WhFwcSs0nzdYEQopR0q64TliV3HNbMVLWinwTBovbpEPkoR4z7KCsyoeZYlpDZEIDa1n7-LbczAfU-trxiEkKnz03ZC3ngqMta-T-HbGAJ5yXWd9NThs5yACml-Ht0bnbrDoB29DOX_uwCVfneI4wtv0&amp;t=3f4a792d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=xYXRWqEu2L1V2wGnZWfWjehOMvcyL0E9ajeSBBwmJbtkjNstKpDsU-HS7NM63j4WSyfbYtI6zPVC-XJjG82fK6oG056g24G-YqSk3WQlLjkxmTc6xqcgVBpWGntcGVZgHWd7iUDd_bWNZufmWrEYU8xxzVk1&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=NlzpkQ0YgcJbmu_4RCQNhoVdT73KVbSj69W3jm4BnhdN19Lfhul3ah5LTLtIxPLp8IgICAVWALpEdKgRC8gWZZ3tr-0-lqkpAgI6KdLOlPJefDH-y_aEGr_XNltQoWqljgLCcbtcnDmh43MT8cvWs8PGsec1&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=WhvwpyOgUD5Zu91D5RTVaH2HvaD-bJQoKVcHs-P_W_nAn4boxtPiT3cvIjbPXi883IL8CQ4G98tcCDjPrwq8tZ9r2mQgGWBlx486GPkQXFvI8tE-5GRcgU9W6QTxgyUjiJ-HZKeiH3BCY4XXfDYNoTbrjL7xI85xseWSSoDQzBf0Ii_V0&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=8hZwUrzl-OZL_Xj4S4NaCYK7yqhITMJVUXcpFYIq9vJXuzsNCzrdXQWzxetX21m-iZdXiXlAvXKm7Xzk44-a2PYfG8bGvBRq0f2i22sxzc1OjjiinZm0L4pNY4AiDEs5iTK8uQCmeLAf0nAK0RNLNtC_0Wk1&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dNb6zXqij4Rqjotu8UwkCmFTZFEdBy0YFwDMm6LiOie-6krhG9CGXWndJseV7yCaXzA1Sbazcr9hjQuSo7XEWNMzcbXzXwwKKnFJJjhSKNfQKxO5nqdk1kJwG3lG9hUp6rI_z3hIKdOfrCWVn5sZ-yW1kFk1&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=qBS65FIK96YtsASzP2cM7_9sZOdQsKb2qhVYgqXrua0D2-tYQiQ8qY6EBbtaRtpuy4WSXncc0hIji1_v03LNiVZoMkcnGaDVVKLh4u4m8C6cIIk8i5D3NGMjSNxcMMHclloMjsSMJyqCrCtDzvfVdHVJUmZLjvmY07tTgg5zEgIpmg8r0&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=oSY8KqCyFjLShgM64yXdTkDqz7NHfbNP7av_-D2MiBTzpfTpQ9Pmx3St1bcdIWGFHnszG6C76b63bK-P_K1ZAF-i_RrJarAYaNa6QOIDYXxDVOn-Yf2Gbwe13nIJ2qCXnvBUbmcd4b14nXONyA6KlkDbdEMIZbDiRIlv5SODqOfw1DUP0&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=Hgb5eTFlVFDs9dliX7-y-wkjlZ-2XE4QaGOgT5Oz7gj0L-80FywzmyWivQznQb-O68KkupkuEwH0ULZq1zsSzIApzzu8UNxemG8QwNO17ZMVZzviwd1BpQ0FU6V8o9T-DlFiPbxTdfTqlDe74F32yG7UpzLOCC5WoyXML4qBaaaThzM_0&amp;t=2e070b50" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=rtfgqX1kB2qZ186A1DFQI-XY5QXr7R8xPHQMD9RY9oHxJfmG99wtaTzkah9bOMfC7qAdx3hsAJzfNDtxgVu500HkwCasglc1cSEnaIL2-Vc7VJTR4Fpqm9tHKEuw-ecl5EJ9TIFXAIVovh3O4B7C_YG-LVT4_18pHR4BDjdQA7FsSYIA0&amp;t=2e070b50" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+</div>
+        <div align="center">
+            <div class="base">
+                
+                <table>
+                    <tr>
+                        <td>
+                            
+
+<div style="background-image: url(./img/Banner2009.png)">
+    <table width="1000px">
+        <tr>
+            <td height="115px" style="padding-left: 50px" valign="bottom" align="right">
+                
+
+
+
+<script language="javascript" type="text/javascript">
+
+    function changeLanguage_click(obj) {
+        EduSoft.Web.UC.Logout.ChangeLanguage(obj, changeLanguage_callback);
+    }
+    function changeLanguage_callback() {
+        var loc = window.location.href;
+        if (loc.endsWith("/")) loc = loc.substr(0, loc.length - 1);
+        if (loc.toLowerCase().indexOf("default.aspx") <= 0)
+            self.location = loc + "/default.aspx?pgtemp=x";
+        else if (loc.toLowerCase().indexOf("?") <= 0)
+            self.location = loc + "?lang=x";
+        else if (loc.endsWith("&lang=x"))
+            self.location = loc.replace("&lang=x", "&lang=y");
+        else if (loc.endsWith("&lang=y"))
+            self.location = loc.replace("&lang=y", "&lang=x");
+        else
+            self.location = loc + "&lang=x";
+    }
+    function selectFont_change() {
+        var selectmenu = document.getElementById("selectFont");
+        var chosenOption = selectmenu.options[selectmenu.selectedIndex];
+        var font = chosenOption.value;
+        EduSoft.Web.UC.Logout.ChangeFont(font, ChangeFont_callback);
+    }
+    function ChangeFont_callback() {
+        //self.location=window.location;
+    }
+
+    function ConfirmChuaLuu(obj) {
+
+        alert(obj);
+        self.location = "default.aspx?page=dkmonhoc";
+    }
+
+    
+
+    function signOutGoogle(dest) {
+        var url = 'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue='
+            + decodeURIComponent(dest);
+        document.location = url;
+        
+        //gapi.load('auth2', function () {
+        //    gapi.auth2.init();
+        //    var auth = gapi.auth2.GoogleAuth;
+        //    auth.signOut().then(function () {
+        //        location = decodeURIComponent(dest) + 'page=gioithieu';
+        //    });
+        //});
+    }
+</script>
+
+<div id="ctl00_Header1_Logout1_dLog" class="logout" style="text-align: right; margin-bottom: 0px">
+    
+    <img src="App_Themes/Standard/Images/US.gif" alt="English" onclick="changeLanguage_click('_us')"
+        id="imgUS" title="English" />
+    <img src="App_Themes/Standard/Images/VI.gif" alt="Vietnamese" onclick="changeLanguage_click('_vi')"
+        id="imgVi" title="Vietnamese" />
+    <span id="ctl00_Header1_Logout1_lblNguoiDung" class="Label" style="color:#FF3300;font-size:12px;font-weight:bold;">Chào bạn </span>&nbsp;
+    
+    
+    <a id="ctl00_Header1_Logout1_lbtnLogOut" href="javascript:__doPostBack('ctl00$Header1$Logout1$lbtnLogOut','')" style="color:#FF3300;font-size:10pt;font-weight:bold;font-family: 'Tahoma', Times, serif">Đăng Nhập</a>
+    &nbsp;<select id="selectFont" style="font-size: 11px; width: 100px; color: #000080;"
+        onchange="selectFont_change()">
+        <option value="uni">-------Font-------</option>
+        <option value="uni" selected>Font Unicode</option>
+        <option value="abc" >Font ABC</option>
+        <option value="vni" >Font Vni</option>
+        <option value="not" >Text không
+            dấu</option>
+    </select>
+</div>
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+                            
+
+<style type="text/css">
+    .styleApplication {
+        font-size: 26;
+        font-weight: bold;
+    }
+
+    @font-face {
+        font-family: 'myriadpro';
+        src: url('js/myriadpro-bold.otf');
+    }
+
+    .menufontdhxd {
+        font-family: 'myriadpro';
+        font-size: 14px;
+    }
+</style>
+
+<div class="left-menu">
+    <div class="right-menu">
+
+        <div class="main-menu" style="height: 110px">
+
+            <div id="ctl00_menu_pnlGioithieu" class="out-menu">
+	
+                <div class="left"></div>
+                <div class="center" style="white-space: nowrap">
+                    <a href="Default.aspx?page=gioithieu">
+                        <span id="ctl00_menu_lblTrangChu" class="Label">TRANG CHỦ</span></a>
+                </div>
+                <div class="right"></div>
+            
+</div>
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+            
+
+
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            <div id="ctl00_menu_ykiensinhvien" class="out-menu">
+	
+                <div class="left"></div>
+                <div class="center" style="white-space: nowrap">
+                    <a href="Default.aspx?page=ykiensinhvien">
+                        <span id="ctl00_menu_lblykiensinhvien" class="Label">GÓP Ý KIẾN</span></a>
+                </div>
+                <div class="right"></div>
+            
+</div>
+
+
+
+            
+
+
+
+            
+
+
+
+
+            
+
+            
+
+            
+
+
+
+            
+
+
+            
+
+            
+
+            
+
+            
+
+            
+
+
+
+            
+
+            
+
+            
+
+            
+            
+            
+
+             
+
+            
+
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+
+            
+
+            
+
+
+            
+
+            
+
+            
+
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+
+            
+            
+            
+
+            
+            
+        </div>
+
+    </div>
+
+</div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="500px" valign="top">
+                            
+<span id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1"><a id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_lbTarget" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ctl00$MessageBox1$lbTarget','')"></a><div id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_panelMessageBox" class="confirmBox" style="display:none">
+	<div id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_panelHeader" class="header" style="background: url(Images/header.png);repeat-x 0px -200px;">
+		<div class="msg">
+			<span id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_lblPopupHeader" class="Label" style="color:White;font-family:Arial Black;"></span>
+		</div><input type="image" name="ctl00$ContentPlaceHolder1$ctl00$MessageBox1$imgCloseButton" id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_imgCloseButton" class="close" src="/WebResource.axd?d=_0LEVS_y_uijI1fkHYiXmKOxp5AhRtp7Eai0osSX543jxRqFTNzyACoh09MgwTNrZmPg7rFdvk-IPDfhQ5YTAIomD84M2d_RdXm24Hv2bAP7QYtx-PMaUdWg4C_lGPmZcuzBgoMjUlbFDICUsSePGTVpSulY99PWuvVzA9DSIceYys-b0&amp;t=637782889760000000" style="border-width:0px;" />
+	</div><div id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_panelBody" class="body" style="background-color:#E1E5F0;">
+		<div class="body-left" style="background-color:#E1E5F0;">
+			<img id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_ctl02" src="" style="border-width:0px;" />
+		</div><div id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_ctl03" class="body-right" style="background-color:#E1E5F0;">
+			<span id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_lblMessageDisplay" class="Label" style="font-family:Tahoma;color:#263F75;"></span>
+		</div>
+	</div><div id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_panelFooter" class="footer" style="background-color:#E1E5F0;">
+		<div class="right" style="background-color:#E1E5F0;">
+			<input type="image" name="ctl00$ContentPlaceHolder1$ctl00$MessageBox1$btnOk" id="ctl00_ContentPlaceHolder1_ctl00_MessageBox1_btnOk" class="button_small_active" src="/WebResource.axd?d=mJ_LeBQPqzhN0t5aPu7zle75uQ1PCpNhMHWKiaPfidmQqSrWaRLlXMjlRZt3v1iTgRCtLOHhjvmSD9vrzEXQwVCJcQB9AolmCG5UFqLae0L9fssBYuQ8v8lM8N0skQwfj1eJJ8lV_o3M0aU6zpe6xyKgDf47hWZCbQElyvr0DyhdpRi10&amp;t=637782889760000000" style="height:22px;width:70px;border-width:0px;" />
+		</div>
+	</div>
+</div></span>
+
+
+<style type="text/css">
+    #dhtmltooltip {
+        position: absolute;
+        width: 500px;
+        border: 1px solid black;
+        padding: 2px;
+        visibility: hidden;
+        z-index: 100;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+    }
+</style>
+<div id="dhtmltooltip"></div>
+
+<script type="text/javascript" src="https://sp.zalo.me/plugins/sdk.js"></script>
+
+<script type="text/javascript">
+
+    var offsetxpoint = -60 //Customize x offset of tooltip
+    var offsetypoint = 20 //Customize y offset of tooltip
+    var ie = document.all
+    var ns6 = document.getElementById && !document.all
+    var enabletip = false
+    if (ie || ns6)
+        var tipobj = document.all ? document.all["dhtmltooltip"] : document.getElementById ? document.getElementById("dhtmltooltip") : ""
+
+    function ietruebody() {
+        return (document.compatMode && document.compatMode != "BackCompat") ? document.documentElement : document.body
+    }
+
+    function ddrivetip(src, thecolor, thewidth) {
+        if (ns6 || ie) {
+            if (typeof thewidth != "undefined") tipobj.style.width = thewidth + "px"
+            if (typeof thecolor != "undefined" && thecolor != "") tipobj.style.backgroundColor = thecolor
+            tipobj.innerHTML = src;
+            enabletip = true
+            return false
+        }
+    }
+    function positiontip(e) {
+        if (enabletip) {
+            var curX = (ns6) ? e.pageX : event.clientX + ietruebody().scrollLeft;
+            var curY = (ns6) ? e.pageY : event.clientY + ietruebody().scrollTop;
+            //Find out how close the mouse is to the corner of the window
+            var rightedge = ie && !window.opera ? ietruebody().clientWidth - event.clientX - offsetxpoint : window.innerWidth - e.clientX - offsetxpoint - 20
+            var bottomedge = ie && !window.opera ? ietruebody().clientHeight - event.clientY - offsetypoint : window.innerHeight - e.clientY - offsetypoint - 20
+
+            var leftedge = (offsetxpoint < 0) ? offsetxpoint * (-1) : -1000
+
+            //if the horizontal distance isn't enough to accomodate the width of the context menu
+            if (rightedge < tipobj.offsetWidth)
+                //move the horizontal position of the menu to the left by it's width
+                tipobj.style.left = ie ? ietruebody().scrollLeft + event.clientX - tipobj.offsetWidth + "px" : window.pageXOffset + e.clientX - tipobj.offsetWidth + "px"
+            else if (curX < leftedge)
+                tipobj.style.left = "5px"
+            else
+                //position the horizontal position of the menu where the mouse is positioned
+                tipobj.style.left = curX + offsetxpoint + "px"
+
+            //same concept with the vertical position
+            if (bottomedge < tipobj.offsetHeight)
+                tipobj.style.top = ie ? ietruebody().scrollTop + event.clientY - tipobj.offsetHeight - offsetypoint + "px" : window.pageYOffset + e.clientY - tipobj.offsetHeight - offsetypoint + "px"
+            else
+                tipobj.style.top = curY + offsetypoint + "px"
+            tipobj.style.visibility = "visible"
+        }
+    }
+
+    function hideddrivetip() {
+        if (ns6 || ie) {
+            enabletip = false
+            tipobj.style.visibility = "hidden"
+            tipobj.style.left = "-1000px"
+            tipobj.style.backgroundColor = ''
+            tipobj.style.width = ''
+        }
+    }
+
+    document.onmousemove = positiontip;
+    document.onblur = function (ev) {
+
+    }
+</script>
+
+<script type="text/javascript">
+    // initialize plugins
+    $(function () {
+        var tm = setTimeout(function () {
+            EduSoft.Web.UC.GioiThieu.GetHitCounter(function (ret) {
+                if (ret ?.value) {
+                    var st = "00000000" + ret.value;
+                    st = st ?.substring(st.length - 9);
+                    var ltCount = document.getElementById("ltHitCounter");
+                    if (!ltCount) return;
+                    var tb = '<table cellSpacing="1" cellPadding="1" border="1" borderWidth="" borderColor="White" style="color:White;background-color:Black;border-color:White;"><TR>';
+                    for (i = 0; i < st.length; i++) {
+                        tb += '<TD align="middle">' + st.substring(i, i + 1) + '</TD>';
+                    }
+                    tb += '</TR></table>';
+                    ltCount.innerHTML = tb;
+                }
+            });
+        }, 1000);
+
+        try {
+            $("ul.sf-menu").supersubs({
+                minWidth: 13,
+                maxWidth: 60,
+                extraWidth: 5,
+            }).superfish();
+        } catch (ex) { }
+    });
+</script>
+
+
+<div class="navigate-base">
+    <table>
+
+        
+        
+        <tr>
+            <td align="left">
+                
+
+
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.js"></script>
+<script src="//kjur.github.io/jsrsasign/jsrsasign-latest-all-min.js"></script>
+<script src="js/graph-js-sdk-web.js"></script>
+<script src="js/Login365_1.js"></script>
+
+<script language="javascript" type="text/javascript">
+    function MessUpdate(obj) {
+        alert(obj);
+    }
+
+    function ConfirmXemDiem(obj) {
+        if (confirm(obj)) {
+            self.location = "default.aspx?page=xemdiemthi";
+        }
+    }
+
+    function button_click(objTextBox, objBtnID) {
+        if (window.event.keyCode == 13) {
+            document.getElementById(objBtnID).focus();
+            document.getElementById(objBtnID).click();
+        }
+    }
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ContentPlaceHolder1$ctl00$ucDangNhap$ScriptManager1', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+
+    <div id="ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_vLogin">
+	
+        <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td valign="top" style="background-image: url(App_Themes/Standard/Images/menuLogLeft.png)"
+                    width="320px" height="34px">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="icons"></div>
+                            </td>
+                            <td>
+                                <a id="ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_lnkBtnQuenMK" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ctl00$ucDangNhap$lnkBtnQuenMK','')" style="color:Blue;font-family:Tahoma;font-size:9pt;">Quên mật khẩu!</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="background-image: url(App_Themes/Standard/Images/loginGiua.png)" height="34px" width="475px">
+                    <table>
+                        <tr>
+                            <td width="95px" align="center">&nbsp;
+                        <span id="ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_lblTenDangNhap" class="Label">Tên Đăng Nhập</span></td>
+                            <td align="left" width="100px">
+                                <input name="txtTaiKhoan" type="text" id="ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_txtTaiKhoa" class="TextBox" onkeypress="button_click(this,'ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_btnDangNhap')" style="border-color:White;border-style:None;height:16px;width:110px;" /></td>
+                            <td width="100px" align="center">&nbsp;<span id="ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_lblMatKhau" class="Label">Mật Khẩu</span></td>
+                            <td width="100px">
+                                <input name="txtMatKhau" type="password" id="ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_txtMatKhau" class="TextBox" onkeypress="button_click(this,'ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_btnDangNhap')" style="border-color:White;border-style:None;height:16px;width:120px;" /></td>
+                        </tr>
+                    </table>
+
+                </td>
+                <td valign="middle" style="background-image: url(App_Themes/Standard/Images/menuNavigateLogRight.png)" height="34px" width="75px">
+                    <input type="submit" name="ctl00$ContentPlaceHolder1$ctl00$ucDangNhap$btnDangNhap" value="Đăng Nhập" id="ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_btnDangNhap" class="DefaultButton" class="defaultbnt" value="Đăng Nhập" />
+
+                </td>
+                <td valign="middle" style="background-image: url(App_Themes/Standard/Images/menuNavigateLogRight.png)" height="34px" width="120px">
+                    
+                    
+                </td>
+
+            </tr>
+
+        </table>
+        
+        
+    
+</div>
+
+    
+
+<script src="js/Login365.js"></script>
+<script language="javascript" type="text/javascript">
+
+    //Đăng ký sự kiện cho button Login365
+    $('#btnLogin365').attr('href', buildAuthUrl());
+
+</script>
+
+            </td>
+        </tr>
+        
+        <tr valign="top">
+            <td>
+                <table>
+                    <tr>
+                        <td style='display:none'  width ='0%'> 
+                        
+                        </td> <td>
+                        <div class="navigate-base">
+                            <div class="title-base">
+                                <div class="title">
+                                    <table>
+                                        <tr>
+                                            <td width="10px" >
+                                                <img src="App_Themes/Standard/Images/icon_04b.gif" /></td>
+                                            <td>
+                                                <span id="ctl00_ContentPlaceHolder1_ctl00_lblViTri0" class="Label">THÔNG BÁO</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <br />
+
+
+                            <table id="ctl00_ContentPlaceHolder1_ctl00_tbViTri0" class="classTable" border="0" style="width:100%;">
+	<tr>
+		<td align="left" style="color:Blue;"><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=15'><strong>Thông tin đào tạo cuối Học kỳ I, đầu Học kỳ II - 2022-2023</strong></a><span class='NgayTitle'> (29/11/2022)</span></td>
+	</tr><tr>
+		<td align="left"><span class='TextThongTin' style='text-align:left'><p style="font-family: Tahoma;"><span style="font-size: 16px;"><strong>ĐĂNG KÝ MÔN HỌC HỌC KỲ II, NĂM HỌC 2022 - 2023</strong><br />(xem thông báo chi tiết cho từng bước ở phần tin "Tin tức sự kiện")</span></p><p style="font-family: Tahoma; font-size: 10.6667px;"><span style="font-size: 16px;"><strong>* Thông báo đăng ký môn học </strong>(được chuyển đến các Khoa và thông tin tại web P. Đào tạo từ 04/11/2022)<br /></span><strong style="font-size: 16px;">&nbsp; &nbsp;</strong><span style="font-size: 16px;">Thông báo ĐKMH học kỳ (<a href="http://thongtindaotao.sgu.edu.vn/Upload/file/HK222_TB_DKMH.pdf" style="text-decoration-line: none;">xem thông báo</a>) -&nbsp;Thông báo tập ĐKMH (dành cho SV năm thứ 1) (<a href="http://thongtindaotao.sgu.edu.vn/Upload/file/HK222_TB_tapdkmh.pdf" style="text-decoration-line: none;">xem thông báo</a>)<br /></span><strong style="font-size: 16px;">* Chuẩn bị đăng ký môn học</strong><span style="font-size: 16px;">&nbsp;<br /></span><span style="font-size: 16px;"><strong>Bước&nbsp;</strong><strong>1.&nbsp;Xem sổ tay đăng ký môn học</strong>&nbsp;<br /></span><strong style="font-size: 16px;">* Đặc biệt lưu ý khi đăng ký môn học&nbsp;<br /></strong><strong style="font-size: 16px;">Bước 2.</strong><strong style="font-size: 16px;">&nbsp;Đăng ký môn học (từ 05/12 đến 14/12/2022)<br /></strong><span style="font-size: 16px;"><strong>Bước 3. Xem nhóm/ lớp bị hủy do số lượng SV đăng kí quá ít<br /></strong></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp; &nbsp;Thông báo ĐKMH (đợt bổ sung) (kèm DS nhóm lớp bị hủy, mở bổ sung) đ</span><span style="font-size: 16px; font-family: Tahoma;">ược thông tin tại web P. Đào tạo từ 17g, 16/12/22.&nbsp;</span><span style="font-size: 16px;">Dữ liệu TKB được cập nhật (sau khi xử lí nhóm lớp bị hủy) </span><strong style="font-size: 16px;">từ 16g, ngày 19/12/2022</strong><span style="font-size: 16px;">.<br /></span><span style="font-size: 16px; font-family: Tahoma;"><strong>Bước 4.</strong></span><strong style="font-size: 16px;">&nbsp;</strong><span style="font-size: 16px; font-family: Tahoma;"><strong>Đăng ký môn học đợt bổ sung (từ 20/12 đến 23/12/2022)</strong>&nbsp;<br /></span><strong style="font-size: 16px;">* Xử lý kết quả ĐKMH sau đợt ĐKMH bổ sung<br /></strong><strong style="font-size: 16px;">Bước 5. Đóng học phí (từ 09/01 đến 13/01/2023)&nbsp;</strong><span style="font-size: 16px; font-family: Tahoma;">(xem chi tiết tại mục tin "Đóng học phí" - Tin tức sự kiện)</span><span style="font-size: 16px; font-family: Tahoma;"><br /></span><strong style="font-size: 16px;">&nbsp;</strong><strong style="font-size: 16px;">Chốt số liệu học phí đã đóng </strong><span style="font-size: 16px; font-family: Tahoma;">đến hết ngày 15/01/2023;</span><strong style="font-size: 16px;"> (đợt 2) đến hết ngày 17/01/2023.</strong><strong style="font-size: 16px;">&nbsp;<br /></strong><span style="font-size: 16px; font-family: Tahoma;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Cập nhật thông tin </strong></span><span style="font-size: 16px; font-family: Tahoma;">lúc 17g, 16/01/2023; lúc 10g30, 17/01/2023;<strong> (đợt 2) lúc 16g, 19/01/2023</strong>.</span><br /></p><p><span style="font-family: Tahoma;"><span style="font-size: 16px;"><strong>Bước 6. Xem danh sách nợ học phí sau đợt đóng học phí </strong>(tính đến hết ngày 31/01/2023)<br /></span></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp;Danh sách sẽ được thông tin đến các khoa/ ngành để thông báo cho SV, đồng thời sẽ thông tin tại web Trường.<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp; + DSSV ngoài sư phạm và sư phạm K22 nợ học phí (<a href="Upload/file/HK222_DS no HP - ngoaiSP - SP K22 tinh den ngay 31-1-2023.pdf">xem danh sách</a>):&nbsp;</span><span style="font-size: 16px; font-family: Tahoma;">SV sẽ bị hủy tất cả kết quả ĐKMH</span><span style="font-size: 16px; font-family: Tahoma;">&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp;(SV lớp chất lượng cao có DS riêng gửi Khoa)&nbsp;</span><span style="font-size: 16px; font-family: Tahoma;">&nbsp;<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp; + DSSV sư phạm&nbsp;</span><span style="font-size: 16px; font-family: Tahoma;">(K18, 19, 20)&nbsp;</span><span style="font-size: 16px; font-family: Tahoma;">nợ học phí học lại&nbsp; (</span><a href="Upload/file/HK222_DS no HP - hoc lai SP - tinh den ngay 31-1-2023.pdf" style="font-size: 16px; font-family: Tahoma;">xem danh sách</a><span style="font-size: 16px; font-family: Tahoma;">): SV sẽ bị hủy tất cả học phần ĐK học lại<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp;Mọi thắc mắc về học phí, SV liên hệ với Phòng Kế hoạch Tài chính (cơ sở chính, phòng HB006, 007) hoặc email p_kehoachtaichinh@sgu.edu.vn, hạn chót là 16g, 03/02/2023.<br /></span><span style="font-family: Tahoma;"><span style="font-size: 16px;">&nbsp; &nbsp;Lưu ý sau thời điểm chốt học phí (hết ngày 31/01/2023) và phát hành DS nợ học phí, việc SV tự ý chuyển khoản học phí mà không báo cáo với P. KHTC là không hợp lệ (vì có liên quan đến kết quả ĐKMH, TKB).</span><br /><span style="font-size: 16px;"><strong>Bước 7. Xem TKB chính thức </strong>(từ 02/02/2023)</span><br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp;Thời khóa biểu (kết quả ĐKMH) của SV được cập nhật từ 12g, 02/02/2023<br /></span><strong style="font-family: Tahoma; font-size: 16px;">&nbsp; &nbsp;</strong><span style="font-size: 16px; font-family: Tahoma;">(03/02/2023) Học kỳ II, 2022-2023 bắt đầu từ ngày 06/02/2023, đề nghị SV và GV kiểm tra lần cuối Thời khóa biểu học tập/ giảng dạy (lưu ý có điều chỉnh phòng học của vài nhóm lớp, căn cứ rà soát của Ban Hạ tầng cơ sở)<br /></span><strong style="font-family: Tahoma; font-size: 16px;"><img src="http://thongtindaotao.sgu.edu.vn/Upload/image/New.gif" alt="" /></strong><span style="font-size: 16px; font-family: Tahoma;"><span style="color: #ff0000;"><strong>* Rút môn học</strong> (từ tuần thứ 3 của học kỳ) (xem chi tiết lại mục "Rút môn học" - phần "Tin tức sự kiện")&nbsp;&nbsp;</span></span></p><p style="font-family: Tahoma; font-size: 10.6667px;"><span style="font-size: 16px;">----<br /></span><strong style="font-size: 16px;">CÁC THÔNG TIN KHÁC</strong></p><p><span style="color: #ff0000;"><span style="font-family: Tahoma;"><span style="font-size: 16px;"><strong>+ Kết quả học tập học kì Học kì I, Năm học 2022-2023<br /></strong></span></span></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp;<strong><em>- Điểm quá trình:</em></strong> được&nbsp;</span><span style="font-size: 16px; font-family: Tahoma;">thông tin từ 11g, 11/01/2023<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp; Nếu có thắc mắc về ĐQT,&nbsp;</span><span style="font-size: 16px; font-family: Tahoma;">SV liên hệ với GV phụ trách nhóm lớp. <span style="text-decoration: underline;">Thời hạn để GV điều chỉnh ĐQT là 06/02/2023</span>. <br />&nbsp; &nbsp; GV sẽ trả lời kết quả cho SV (có/ không có điều chỉnh điểm).<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp; SV cần liên hệ trong thời gian sớm nhất có thể, chậm nhất là trước thời hạn nói trên 3 ngày để GV có thời gian sưu tra, phản hồi và làm thủ tục điều chỉnh (nếu có).<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp;Điểm quá trình được điều chỉnh theo tường trình của GV được cập nhật từ 12g, 09/02/2023<br /><span style="color: #ff0000;">&nbsp;<strong><em>- Điểm thi kết thúc học phần</em></strong><br /></span></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp;<strong>Danh sách hoãn thi học kỳ</strong> (<a href="Upload/file/HK221_HoanThiHK.pdf">xem danh sách</a>) đã được chuyển đến các khoa để thông tin đến SV<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp;* Các học phần môn chung: được thông tin từ 12g, 01/02/2023 (đã được xử lý điểm hoãn thi môn chung)<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp;* Các học phần môn chuyên môn: thông tin từ 15g, 09/02/2023&nbsp;</span><span style="font-size: 16px; font-family: Tahoma;">(đã được xử lý điểm hoãn thi môn chuyên môn)</span><span style="font-size: 16px; font-family: Tahoma;"><span style="color: #ff0000;"><br /><strong>&nbsp; Phúc khảo bải thi kết thúc học phần</strong><br />&nbsp; &nbsp;SV xem quy trình phúc khảo (và mẫu đơn) tại web P. Đào tạo (daotao.sgu.edu.vn), mục Tra cứu văn bản - biểu mẫu<br /></span></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp;* Môn chung: sau khi công bố điểm vào 01/02/2023, nhận đơn từ 02/02 đến hết 07/02/2023<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp; SV tra cứu kết quả PK môn chung tại web Phòng Đào tạo. Điểm sau PK đã được cập nhật từ 16g, 24/02/2023<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp;* </span><span style="font-size: 16px; font-family: Tahoma;">Môn chuyên môn: sau khi công bố điểm vào 09/02/2023, nhận đơn từ 09/02 đến hết 20/02/2023<br /></span><strong style="font-family: Tahoma; font-size: 16px;"><img src="http://thongtindaotao.sgu.edu.vn/Upload/image/New.gif" alt="" /></strong><span style="font-family: Tahoma; font-size: 16px;"><span style="color: #ff0000;">&nbsp;SV tra cứu kết quả PK môn chuyên môn tại web Phòng Đào tạo từ 07/03/2023. Thông tin điểm (điểm học phần, điểm tổng kết học kỳ) sau PK được cập nhật từ 12g, 07/03/2023.</span></span></p><p><span style="font-size: 16px; font-family: Tahoma; color: #ff0000;"><strong>+ Tổng kết học kỳ<br /></strong></span><strong style="font-family: Tahoma; font-size: 16px;">&nbsp;* Xét chứng chỉ GDQP-AN và xét đạt môn GDTC sau HK I, 2022-2023</strong><span style="font-size: 16px; font-family: Tahoma;">&nbsp;<br />&nbsp; &nbsp; &nbsp;(chủ yếu cho Khóa 19 sau 7 học kỳ, sẽ xét tiếp sau HK II, 2022-2023, tức HK thứ 8)</span><br style="font-family: Tahoma; font-size: 16px;" /><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp; Kết quả xét dự kiến được gửi đến các khoa/ ngành từ 13/02/2023</span><span style="font-size: 16px; font-family: Tahoma; color: #ff0000;"><br /><strong>&nbsp;* Xét cảnh báo kết quả học tập - buộc thôi học</strong> (Đợt họp xét ngày 21/02/2023)<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp; Kết quả xét dự kiến được gửi đến các khoa/ ngành từ 14/02/2023, phản hồi trước 10g, 20/02/2023</span><span style="font-size: 16px; font-family: Tahoma;"><br /><strong>&nbsp;* Bảng điểm tổng hợp (theo lớp) HK I, 2022-2023</strong><br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp; Được gửi đến các khoa/ ngành và Phòng Công tác SV từ 17/02/2023</span></p><p><span style="font-size: 16px; font-family: Tahoma; color: #ff0000;"><strong>+ Xét tốt nghiệp Đợt 1 Năm 2023&nbsp;</strong>(Đợt họp xét ngày 21/02/2023)<br /></span><span style="font-size: 16px; font-family: Tahoma;">&nbsp; &nbsp; Kết quả xét dự kiến được gửi đến các khoa/ ngành từ 15/02/2023, phàn hồi trước 10g, 20/02/2023<br /></span><strong style="font-family: Tahoma; font-size: 16px;"><img src="http://thongtindaotao.sgu.edu.vn/Upload/image/New.gif" alt="" />&nbsp;</strong><span style="font-size: 16px; font-family: Tahoma;"><span style="color: #ff0000;">Từ 02/03/2023, Phòng Đào tạo phát hành Giấy chứng nhận tốt nghiệp tạm thời Đợt 1 Năm 2023 đến các Khoa, SV đến Khoa để nhận.</span></span></p></span><div style='text-align:right' ><div class='ChiTiet'><img src='App_Themes/Standard/Images/arrow_r.gif' alt=''/> <a class='TextThongTin' href='default.aspx?page=chitietthongtin&id=15'>Xem Chi Tiết</a></div></div></td>
+	</tr><tr>
+		<td align="left"><table width='300px' style='text-align:left'><tr><td rowspan='2' width='15px'><img src='..//App_Themes/Standard/Images/images.jpg'
+                                    width='15px' alt=''/></td><td align='left' width='280px'> Bản tin cũ</td><td align='left'><span class='tatcabantin'></td></tr><tr><td colspan='2' class='kecham'></td></tr></table></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=13'><strong>Thông tin đào tạo cuối HK phụ (2021 - 2022) đầu HK I (2022 - 2023)</strong>... <span class='NgayTitle'>(28/07/2022)</span></a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=12'>T<strong>hông tin đào tạo cuối HK II, đầu HK phụ - năm học 2021 - 2022</strong>... <span class='NgayTitle'>(27/04/2022)</span></a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=11'><strong>Thông tin đào tạo cuối HK I, đầu HK II, năm học 2021 - 2022</strong>... <span class='NgayTitle'>(04/12/2021)</span></a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=10'><strong>Thông tin đào tạo cuối HK phụ, 2020-2021; đầu HK I, 2021-2022</strong>... <span class='NgayTitle'>(14/08/2021)</span></a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=9'><strong>Thông tin đào tạo cuối HK II, đầu HK phụ, năm học 2020 - 2021</strong>... <span class='NgayTitle'>(20/04/2021)</span></a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=8'><strong>Thông tin đào tạo cuối HK I, đầu HK II - Năm học 2020 - 2021</strong>... <span class='NgayTitle'>(17/11/2020)</span></a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=6'><strong>Thông tin đào tạo cuối HK phụ NH 2019-2020, đầu HK 1 NH 2020 - 2021</strong>... <span class='NgayTitle'>(08/08/2020)</span></a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=5'><strong>Thông tin đào tạo cuối HK2, đầu HK3, năm học 2019 - 2020</strong>... <span class='NgayTitle'>(04/06/2020)</span></a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=4'><strong>Thông tin đào tạo cuối HK1, đầu HK2, năm học 2019 - 2020</strong>... <span class='NgayTitle'>(29/10/2019)</span></a></td>
+	</tr><tr>
+		<td align="right"><span class='tatcabantin'><a href='default.aspx?page=danhsachthongtin&type=1'>Xem tất cả</a></span></td>
+	</tr>
+</table>
+                        </div>
+                        </td></tr><tr>
+
+                        
+                        <td style='display:none' >
+                        <div class="navigate-base">
+                            <div class="title-base">
+                                <div class="title">
+                                    <table>
+                                        <tr>
+                                            <td width="10px" >
+                                                <img src="App_Themes/Standard/Images/icon_04b.gif" /></td>
+                                            <td>
+                                                <span id="ctl00_ContentPlaceHolder1_ctl00_lblViTri1" class="Label">THÔNG TIN HỆ VỪA LÀM VỪA HỌC</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <br />
+                            <table id="ctl00_ContentPlaceHolder1_ctl00_tbViTri1" class="classTable" border="0" style="width:100%;">
+	<tr>
+		<td></td>
+	</tr><tr>
+		<td></td>
+	</tr>
+</table>
+                        </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <table width="100%">
+                    <tr>
+                        <div id="ctl00_ContentPlaceHolder1_ctl00_pnlYahoo">
+	
+                            <td width="14%" valign="top">
+                                <table cellpadding='0' cellspacing='0'>
+                                    <tr>
+                                        <td>
+                                            <div class="navigate-base">
+                                                <table cellpadding='0' cellspacing='0'>
+                                                    <tr>
+                                                        <td align="left">
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <div class="title-base">
+                                                    <div class="title">
+                                                        <table>
+
+                                                            <tr>
+
+                                                                <td width="10px" >
+                                                                    <img src="App_Themes/Standard/Images/icon_04b.gif" /></td>
+                                                                <td>
+                                                                    <span id="ctl00_ContentPlaceHolder1_ctl00_lblLeft" class="Label">HỖ TRỢ ONLINE</span></td>
+
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+
+                                                
+                                                
+                                                
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            
+                                            <div id="ltHitCounter"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span id="ctl00_ContentPlaceHolder1_ctl00_lblSumGust" class="Label">Số đang truy cập: 82</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span id="ctl00_ContentPlaceHolder1_ctl00_lblSumInDay" class="Label"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span id="ctl00_ContentPlaceHolder1_ctl00_lblSumLogon" class="Label">Số đã đăng nhập:13</span>/3000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        
+</div>
+
+                        <td width="1px">
+                            </td> <td width='43%' valign='top'>
+                            <div class="navigate-base">
+                                <div class="title-base">
+                                    <div class="title">
+                                        <table>
+                                            <tr>
+                                                <td width="10px" >
+                                                    <img src="App_Themes/Standard/Images/icon_04b.gif" /></td>
+                                                <td>
+                                                    <span id="ctl00_ContentPlaceHolder1_ctl00_lblViTri2" class="Label">THÔNG TIN CHUNG</span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <br />
+                                <table id="ctl00_ContentPlaceHolder1_ctl00_tbViTri2" class="classTable" border="0" style="text-align: left">
+	<tr>
+		<td align="left" style="color:Blue;"><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=7'><strong>Những điểm cần lưu ý khi đăng kí môn học</strong></a><span class='NgayTitle'> (31/08/2020)</span></td>
+	</tr><tr>
+		<td><span class='TextThongTin' style='text-align:left'><span style="font-family: Tahoma;"><span style="font-size: 16px;"><strong>Những điểm SV cần lưu ý khi ĐKMH qua mạng</strong></span></span></span><div style='text-align:right' ><div class='ChiTiet'><img src='App_Themes/Standard/Images/arrow_r.gif' alt=''/> <a class='TextThongTin' href='default.aspx?page=chitietthongtin&id=7'>Xem Chi Tiết</a></div></div></td>
+	</tr><tr>
+		<td></td>
+	</tr><tr>
+		<td align="right"><span class='tatcabantin'><a href='default.aspx?page=danhsachthongtin&type=0'>Xem tất cả</a></span></td>
+	</tr>
+</table>
+                            </div>
+                        </td>
+                        <td width="1px">
+                            </td> <td width='43%' valign='top'>
+                            <div class="navigate-base">
+                                <div class="title-base">
+                                    <div class="title">
+                                        <table>
+                                            <tr>
+                                                <td width="10px" >
+                                                    <img src="App_Themes/Standard/Images/icon_04b.gif" /></td>
+                                                <td valign="top">
+                                                    <span id="ctl00_ContentPlaceHolder1_ctl00_lblViTri3" class="Label">TIN TỨC VÀ SỰ KIỆN</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <br />
+                                <table id="ctl00_ContentPlaceHolder1_ctl00_tbViTri3" class="classTable" border="0">
+	<tr>
+		<td align="left" style="color:Blue;"><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=22'><strong>Rút môn học (HK II, 2022-2023)</strong></a><span class='NgayTitle'> (21/02/2023)</span></td>
+	</tr><tr>
+		<td align="left"><span class='TextThongTin' style='text-align:left'><div><span style="font-size: 12pt; font-family: Tahoma;">Rút môn học (từ tuần thứ 3 của học kì)</span></div></span><div style='text-align:right' ><div class='ChiTiet'><img src='App_Themes/Standard/Images/arrow_r.gif' alt=''/> <a class='TextThongTin' href='default.aspx?page=chitietthongtin&id=22'>Xem Chi Tiết</a></div></div></td>
+	</tr><tr>
+		<td align="left"><table width='300px' style='text-align:left'><tr><td rowspan='2' width='15px'><img src='App_Themes/Standard/Images/images.jpg' width='15px' alt=''/></td><td align='left' width='280px'>Bản tin cũ</td><td align='left'></td></tr><tr><td colspan='2' class='kecham'></td></tr></table></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=21'><strong>Đóng học phí</strong>... (<span class='NgayTitle'>27/12/2022</span>)</a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=20'><strong>Đăng ký môn học đợt bổ sung</strong>... (<span class='NgayTitle'>17/12/2022</span>)</a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=19'><strong>Thông báo điều hành đợt ĐKMH</strong>... (<span class='NgayTitle'>03/12/2022</span>)</a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=18'><strong>Đặc biệt lưu ý khi đăng ký môn học</strong>... (<span class='NgayTitle'>03/12/2022</span>)</a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=17'><strong>Thông tin Sổ tay đăng ký môn học</strong>... (<span class='NgayTitle'>02/12/2022</span>)</a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=16'><strong>Chuẩn bị đăng ký môn học</strong>... (<span class='NgayTitle'>02/12/2022</span>)</a></td>
+	</tr><tr>
+		<td align="left"><img src='App_Themes/Standard/Images/Bull9.gif' alt=''/><a class='TextTitle' href='default.aspx?page=chitietthongtin&id=14'><strong>Tập đăng kí môn học dành cho SV khóa 22</strong>... (<span class='NgayTitle'>29/11/2022</span>)</a></td>
+	</tr><tr>
+		<td align="right"><span class='tatcabantin'><a href='default.aspx?page=danhsachthongtin&type=2'>Xem tất cả</a></span></td>
+	</tr>
+</table>
+                            </div>
+                        </td>
+
+                        <div id="ctl00_ContentPlaceHolder1_ctl00_pnlWebLink">
+	
+                            <td width="1px">
+                                
+                            </td>
+                        
+</div>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <table width="100%">
+                    <tr>
+                        <td width="2px">
+                            </td> <td  style='display:none'>
+                            <div class="navigate-base">
+                                <div class="title-base">
+                                    <div class="title">
+                                        <table>
+                                            <tr>
+                                                <td width="10px" >
+                                                    <img src="App_Themes/Standard/Images/icon_04b.gif" /></td>
+                                                <td>
+                                                    <span id="ctl00_ContentPlaceHolder1_ctl00_lblViTri4" class="Label"> THONG BAO KHAC 1</span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <br />
+                                <table id="ctl00_ContentPlaceHolder1_ctl00_tbViTri4" class="classTable" border="0" style="width:100%;">
+	<tr>
+		<td></td>
+	</tr><tr>
+		<td></td>
+	</tr>
+</table>
+                            </div>
+                        </td>
+
+                        <td width="1px">
+                            </td> <td  style='display:none'>
+                            <div class="navigate-base">
+                                <div class="title-base">
+                                    <div class="title">
+                                        <table>
+                                            <tr>
+                                                <td width="10px" >
+                                                    <img src="App_Themes/Standard/Images/icon_04b.gif" /></td>
+                                                <td>
+                                                    <span id="ctl00_ContentPlaceHolder1_ctl00_lblViTri5" class="Label">THONG BAO KHAC 2</span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <br />
+                                <table id="ctl00_ContentPlaceHolder1_ctl00_tbViTri5" class="classTable" border="0" style="width:100%;">
+	<tr>
+		<td></td>
+	</tr><tr>
+		<td></td>
+	</tr>
+</table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+
+    </table>
+</div>
+
+<div id="ctl00_ContentPlaceHolder1_ctl00_pnlZalo">
+	
+    <div class="zalo-chat-widget" data-oaid=""
+        data-welcome-message="" data-autopopup="0" data-width="300" data-height="300">
+    </div>
+
+
+</div>
+
+
+    
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+
+<style type="text/css">
+   
+    .style3
+    {
+        width: 70px;
+    }
+    .style4
+    {
+        width: 129px;
+    }
+    .style5
+    {
+        width: 1019px;
+    }
+   
+</style>
+
+<div class="footer">
+<table width="100%"><tr><td align="left" class="style5" >
+<img src="App_Themes/Standard/Images/icon_11c.gif" alt="" />
+<span class="LogoFooter"><span id="ctl00_Footer1_lblCompany" class="Label">Copyright ©2009 Trường ĐH Sài Gòn-Đại học chính quy. Quản lý bởi Ủy ban nhân dân TP. Hồ Chí Minh</span></span>
+</td>
+    
+        <td valign="top"  align="left" class="style4">
+        <img src="App_Themes/Standard/Images/iconHome.png" alt="" align="right"  />    
+        </td>
+        <td align="left" class="style3">
+        <a href="Default.aspx"><span id="ctl00_Footer1_lbltrangchu" class="Label">Trang Chủ</span></a>
+        </td>
+        
+        
+</tr>
+<tr>
+<td class="style5" >
+    <img src="App_Themes/Standard/Images/icon_11c.gif" alt="" /> 
+    <a href="https://aqtech.vn/" target="_blank"><span id="ctl00_Footer1_lblCopyRight" class="Label">Thiết kế bởi cty Phần mềm Anh Quân</span></a>
+    
+    
+     
+</td>
+<td align="right" valign="top" class="style4"> 
+    <img src="App_Themes/Standard/Images/topTen.gif" width="15px" alt="" />
+    </td>
+    <td class="style3">
+    <a href="#Top" title="Go to top" style="text-decoration: none; font-family:Tahoma;font-size:8pt">
+    <span id="ctl00_Footer1_lbltop" class="Label">Đầu Trang</span>
+    </a>
+</td>
+<td align="right"><a href="Default.aspx?page=thongtinsp"><span id="ctl00_Footer1_lblAbout" class="Label">About</span></a></td>
+</tr>
+
+</table></div>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        
+    
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_ContentPlaceHolder1_ctl00_leftMenu_Data = new Object();
+ctl00_ContentPlaceHolder1_ctl00_leftMenu_Data.disappearAfter = 500;
+ctl00_ContentPlaceHolder1_ctl00_leftMenu_Data.horizontalOffset = 0;
+ctl00_ContentPlaceHolder1_ctl00_leftMenu_Data.verticalOffset = 0;
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ModalPopupBehavior, {"BackgroundCssClass":"msgbox_messagemodalbackground","CancelControlID":"ctl00_ContentPlaceHolder1_ctl00_MessageBox1_imgCloseButton","OkControlID":"ctl00_ContentPlaceHolder1_ctl00_MessageBox1_btnOk","PopupControlID":"ctl00_ContentPlaceHolder1_ctl00_MessageBox1_panelMessageBox","dynamicServicePath":"/default.aspx","id":"ctl00_ContentPlaceHolder1_ctl00_MessageBox1_ajaxModal"}, null, null, $get("ctl00_ContentPlaceHolder1_ctl00_MessageBox1_lbTarget"));
+});
+Sys.Application.initialize();
+//]]>
+</script>
+</form>
+    
+</body>
+
+
